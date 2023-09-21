@@ -15,7 +15,13 @@ h3 {
 }
 header {
     position: sticky;
-    top: -335px;
+    top: -355px;
+}
+#fixedLogo {
+    position: fixed;
+    top:0;
+    right: 10px;
+    margin: 3px;
 }
 #Weather {
     margin:1px;
@@ -73,6 +79,7 @@ ul.horizontal-list li a:visited {
     text-decoration: none;
 }
 article {
+    overflow: hidden;
     margin-top:30px;
     padding: 20px;
     background: #d7e7f7;
@@ -112,6 +119,9 @@ aside {
     background: #d7e7f7;
     border-style:solid;
     border-radius: 5px;
+}
+img {
+    margin: 10px;
 }
 img.center {
     margin: 0 auto;
