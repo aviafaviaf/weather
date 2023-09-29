@@ -13,33 +13,33 @@ h1{
 h3 {
     text-indent: 30px;
 }
-header {
-    position: sticky;
-    top: -355px;
-}
 #fixedLogo {
+    z-index: 2;
     position: fixed;
     top:0;
     right: 10px;
     margin: 3px;
 }
 #Weather {
-    margin:1px;
+    margin:3px;
     color: blueviolet;
     font-size: 72px;
 }
 nav {
+    z-index: 1;
     overflow: hidden;
     position: sticky;
-    top: 0;
-    height: 80px;
+    top: -5px;
+    padding: 0;
+    height: 55px;
     margin-top: 0;
-    border-style: none solid solid solid;
+    border-style: solid solid solid solid;
+    border-top-width: 1px;
     border-radius: 0 0 5px 5px;
     text-align: center;
     background:#ffeec7;
 }
-div.header {
+header {
     margin-bottom: 0;
     padding: 3px;
     text-align: center;
@@ -48,17 +48,19 @@ div.header {
     border-radius: 30px 30px 0 0;
 }
 ul.horizontal-list {
+    position: relative;
     margin: 0;
     list-style: none;
 }
 ul.horizontal-list li {
+    position: relative;
     display: inline-block;
     width: 150px;
     height: 30px;
     vertical-align: middle;
     line-height: 30px;
     background: #d7e7f7;
-    margin: 40px 40px 5px;
+    margin: 10px 40px 5px;
     border-style: solid;
     border-radius: 5px;
 }
@@ -68,7 +70,7 @@ ul.horizontal-list li:hover {
 ul.horizontal-list li:active {
     background: blue;
 }
-ul.horizontal-list > li > a {
+ul.horizontal-list li a {
     display: block;
     color: black;
     text-decoration: none;
@@ -98,6 +100,7 @@ p.ind {
     bottom: 75px;
 }
 section > article {
+    position: relative;
     border-width: 1px;
 }
 header + main {
