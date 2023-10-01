@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Прогноз погоды</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="pictures/cloud-with-lightning-and-rain-2336.png">
+    <link rel="icon" type="image/png" href="pictures/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
@@ -12,22 +12,98 @@
 <body>
 <header>
     <h1 id="Weather">Погода</h1>
-    <img src="pictures/1684506220_polinka-top-p-kartinka-dozhd-na-prozrachnom-fone-pintere-35.png" class="left" alt="Дождь" width="250" height="200">
-    <img src="pictures/1679222789_sneg-top-p-groza-na-belom-fone-krasivo-27%20(1).png" class="left" alt="Гроза" width="250" height="200">
-    <img src="pictures/1674273325_papik-pro-p-sneg-risunok-13.png" class="right" alt="Снег" width="250" height="200">
-    <img src="pictures/1614559792_4-p-nebo-na-belom-fone-4.png" class="right" alt="Облако" width="250" height="200">
     <img id="logo" src="pictures/logo.png" alt="Погода" width="200" height="200">
     <img src="pictures/logo.png" alt="Погода" width="40" height="40" id="fixedLogo">
 </header>
-<nav>
-    <ul class="horizontal-list">
-        <li><a href="#1">Что такое</a></li>
-        <li><a href="#2">Климат России</a></li>
-        <li><a href="#3">Прогноз погоды</a></li>
-    </ul>
-</nav>
+<div id="nav">
+    <nav>
+        <ul class="horizontal-list">
+            <li><a href="#reg">Регистрация</a></li>
+            <li><a href="#1">Что такое</a></li>
+            <li><a href="#2">Климат России</a></li>
+            <li><a href="#map">Карта погоды</a></li>
+            <li><a href="#3">Прогноз погоды</a></li>
+        </ul>
+    </nav>
+</div>
 <main>
-    <section class="ind">
+    <form action="" method="get">
+        <h2 id="reg">Регистрация</h2>
+        <div class="flex">
+            <div>
+                <p>
+                   <label for="email">Почта</label>
+                   <input type="email" name="email" id="email" placeholder="Почта" required>
+                </p>
+                <p>
+                    <label for="password">Пароль</label>
+                    <input type="password" name="password" id="password" placeholder="******" required>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <label for="tel">Телефон</label>
+                    <input type="tel" pattern="[+][7][0-9]{10}" name="tel" id="tel" placeholder="Телефон">
+                </p>
+                <p>
+                    <label for="name">Имя</label>
+                    <input type="text" name="name" id="name" placeholder="Имя">
+                </p>
+            </div>
+            <div>
+                <p>
+                    <label for="file">Файл</label>
+                    <input type="file" name="file" id="file">
+                </p>
+                <p>
+                    <label for="checkbox">Я прочитал пользовательское соглашение</label>
+                    <input type="checkbox" name="checkbox" id="checkbox" checkedv required>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <label for="date">Дата рождения</label>
+                    <input type="date" name="date" id="date">
+                </p>
+                <p>
+                    <label for="age">Возраст</label>
+                    <input type="number" name="age" id="age" min="12" max="100" required>
+                </p>
+            </div>
+            <div>
+                <label for="about">Дополнительная информация</label><br>
+                <textarea id="about" name="about" rows="3" cols="10" maxlength="30" minlength="10" required></textarea>
+            </div>
+            <div id="select-city">
+                <label for="city">Город</label><br>
+                <select name="select" id="city" size="3" multiple required>
+                    <option value="moscow">Москва</option>
+                    <option value="moscow">Санкт-Петербург</option>
+                    <option value="moscow">Углич</option>
+                </select>
+                <button name="button"></button>
+            </div>
+        </div>
+        <fieldset>
+            <legend>Уведомления</legend>
+            <div>
+                <input type="radio" id="type1" name="drone" value="huey" checked />
+                <label for="type1">Все уведомлления</label>
+            </div>
+            <div>
+                <input type="radio" id="type2" name="drone" value="dewey" />
+                <label for="type2">Уведомления только плохой погоде</label>
+            </div>
+            <div>
+                <input type="radio" id="type3" name="drone" value="louie" />
+                <label for="type3">Я не хочу получать уведомления</label>
+            </div>
+        </fieldset>
+        <div>
+            <input type="submit" value="Зарегистрироваться" name="submit" id="submit" required>
+        </div>
+    </form>
+    <section>
         <p id="1" class="ind"></p>
         <h2>Что такое прогноз погоды</h2>
         <p> <b>Прогноз погоды</b> — научно обоснованное предположение о том, какая погода будет в определенное время в определенном месте. <br>
@@ -119,6 +195,17 @@
             </p>
         </article>
     </section>
+    <article>
+        <h2 id="map">Карта погоды</h2>
+        <iframe class="center" height="650" src="https://embed.windy.com/embed2.html?lat=55.735&lon=37.738&detailLat=55.735&detailLon=37.738&width=650&height=450&zoom=8&level=surface&overlay=temp&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1"></iframe>
+    </article>
+    <article>
+        <h2 id="video">Природные явления</h2>
+        <iframe class="center" width="893" height="502" src="https://www.youtube.com/embed/Ha0DaF-D9Xk" title="7 САМЫХ РЕДКИХ ПРИРОДНЫХ ЯВЛЕНИЙ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <br><video controls width="893" height="502">
+            <source src="videos/rain.mp4" type="video/mp4">
+        </video>
+    </article>
     <aside>
         <h2>Список месяцев</h2>
         <ol type="I" start="9">

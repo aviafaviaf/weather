@@ -2,31 +2,47 @@
     font-family: 'Roboto', sans-serif;
 }
 body {
-    background: #ffefff;;
+    background: #fffeff;;
 }
-h2{
+h2 {
     text-align: center;
 }
-h1{
+h1 {
     text-align: center;
 }
 h3 {
     text-indent: 30px;
 }
+div {
+    display: block;
+    margin-right: 30px;
+}
+div.flex {
+    display: flex;
+}
+fieldset {
+    width: 30%;
+}
 #fixedLogo {
-    z-index: 2;
-    position: fixed;
-    top:0;
-    right: 10px;
-    margin: 3px;
-}
-#Weather {
-    margin:3px;
-    color: blueviolet;
-    font-size: 72px;
-}
-nav {
+    margin: 0;
     z-index: 1;
+    position: fixed;
+    top:5px;
+    right: 15px;
+}
+input {
+    float: right;
+    margin-left: 10px;
+    background: lavenderblush;
+}
+input:focus{
+    background: white;
+}
+input::placeholder {
+    color: darkblue;
+}
+#nav {
+    margin-right: 0;
     overflow: hidden;
     position: sticky;
     top: -5px;
@@ -39,7 +55,51 @@ nav {
     text-align: center;
     background:#ffeec7;
 }
+#select-city {
+    font-size: 18px;
+    margin-top: 15px;
+    margin-right: 60px;
+    float: right;
+    vertical-align: center;
+}
+select {
+    background: lavenderblush;
+    font-size: 16px;
+}
+#submit {
+    font-size: 18px;
+    display: block;
+    height: 30px;
+    width: auto;
+    margin: 10px;
+    float: left;
+}
+#submit:hover {
+    background: lightgrey;
+}
+#submit:active {
+    background: darkgrey;
+}
+form {
+    bottom: 0;
+    overflow: hidden;
+    margin-top:30px;
+    padding: 10px;
+    background: #d7e7f7;
+    border-style:solid;
+    border-radius: 5px;
+}
+textarea {
+    background: lavenderblush;
+}
+#Weather {
+    margin:3px;
+    color: blueviolet;
+    font-size: 72px;
+}
+
 header {
+    display: block;
     margin-bottom: 0;
     padding: 3px;
     text-align: center;
@@ -48,12 +108,10 @@ header {
     border-radius: 30px 30px 0 0;
 }
 ul.horizontal-list {
-    position: relative;
-    margin: 0;
+    margin: 0 auto;
     list-style: none;
 }
 ul.horizontal-list li {
-    position: relative;
     display: inline-block;
     width: 150px;
     height: 30px;
@@ -65,19 +123,14 @@ ul.horizontal-list li {
     border-radius: 5px;
 }
 ul.horizontal-list li:hover {
-    background: cadetblue;
+    background: #daeafa;
 }
 ul.horizontal-list li:active {
-    background: blue;
+    background: #dfefff;
 }
 ul.horizontal-list li a {
     display: block;
     color: black;
-    text-decoration: none;
-}
-ul.horizontal-list li a:visited {
-    display: block;
-    color: grey;
     text-decoration: none;
 }
 article {
@@ -96,15 +149,10 @@ section {
     border-radius: 5px;
 }
 p.ind {
-    position: relative;
     bottom: 75px;
 }
 section > article {
-    position: relative;
     border-width: 1px;
-}
-header + main {
-    margin-top: 70px;
 }
 h3 ~ p {
     text-indent: 30px;
@@ -116,13 +164,18 @@ aside {
     margin-right: 20px;
     float: right;
     width: 20%;
-    font-family: 'Roboto', sans-serif;
     margin-top:30px;
     padding: 20px;
     background: #d7e7f7;
     border-style:solid;
     border-radius: 5px;
 }
+iframe.center {
+    display: block;
+    margin: 0 auto;
+    width: 60%;
+}
+
 img {
     margin: 10px;
 }
