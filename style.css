@@ -34,7 +34,8 @@ div.f {
     padding: 20px;
     display: flex;
     flex-flow: row wrap;
-    align-content: center;
+    align-content: space-around;
+    gap: 1px 1px;
 }
 div.f > article {
     margin: 10px 3px 20px 10px;
@@ -43,14 +44,20 @@ div.f > article {
 }
 #forecast {
     width: 50%;
+    flex-grow: 2;
 }
 #article_map {
     width: 35%;
+    flex-grow: 1;
 }
 #list {
+    flex-shrink: 1;
+    flex-grow: 1;
     width: 20%;
 }
 #video_article {
+    flex-grow: 2;
+    flex-shrink: 2;
     width: 60%;
 }
 fieldset {
@@ -114,9 +121,10 @@ select {
     background: darkgrey;
 }
 form {
+    width: 100%;
     bottom: 0;
     overflow: hidden;
-    margin: 20px 30px 20px 30px;
+    margin: 20px 0 20px 0;
     padding: 10px;
     background: #d7e7f7;
     border-style:solid;
@@ -226,14 +234,14 @@ footer {
     background: lightgrey;
     height: 60px;
 }
-@media (min-width: 1325px) and (max-width: 1700px) {
+@media (min-width: 1325px) and (max-width: 1600px) {
     form {
         bottom: 0;
         width: 100%;
         overflow: hidden;
         margin: 20px 5px 20px 0;
         padding: 10px;
-        background: lightgrey;
+        background: #d7e7f7;
         border-style:solid;
         border-radius: 5px;
     }
@@ -279,9 +287,8 @@ footer {
         bottom: 0;
         width: 100%;
         overflow: hidden;
-        margin: 20px 5px 20px 0;
+        background: #d7e7f7;
         padding: 10px;
-        background: lightgrey;
         border-style: solid;
         border-radius: 5px;
     }
@@ -318,6 +325,7 @@ footer {
         width: auto;
         flex-flow: row wrap;
         align-content: center;
+        justify-content: center;
     }
 
     div.f > article {
@@ -332,7 +340,6 @@ footer {
     }
 
     [for=burger] {
-        transform: rotate(30deg);
         z-index: 2;
         display: block;
         position: fixed;
@@ -373,12 +380,10 @@ footer {
         padding: 0;
         list-style-type: none;
     }
-
+    #burger:checked + label {
+        transform: rotate(30deg);
+    }
     #burger:checked + label + #nav {
         visibility: visible;
-    }
-
-    #burger:checked + [for=burger]::before {
-        content: '⮾';
     }
 }

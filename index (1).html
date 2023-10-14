@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Прогноз погоды</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="pictures/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+    <h1 id="Weather">Погода</h1>
+    <img id="logo" src="pictures/logo.png" alt="Погода" width="200" height="200">
+    <img src="pictures/logo.png" alt="Погода" width="40" height="40" id="fixedLogo">
+</header>
+<input type="checkbox" id="burger">
+<label for="burger"></label>
+<div id="nav">
+    <nav>
+        <ul class="horizontal-list">
+            <li><a href="#reg">Регистрация</a></li>
+            <li><a href="#1">Что такое</a></li>
+            <li><a href="#2">Климат России</a></li>
+            <li><a href="#map">Карта погоды</a></li>
+            <li><a href="#3">Прогноз погоды</a></li>
+        </ul>
+    </nav>
+</div>
+<main>
+    <div class="f">
+        <form action="" method="get">
+        <h2 id="reg">Регистрация</h2>
+        <div class="flex">
+            <div>
+                <p>
+                   <label for="email">Почта</label>
+                   <input type="email" name="email" id="email" placeholder="Почта" required>
+                </p>
+                <p>
+                    <label for="password">Пароль</label>
+                    <input type="password" name="password" id="password" placeholder="******" required>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <label for="tel">Телефон</label>
+                    <input type="tel" pattern="[+][7][0-9]{10}" name="tel" id="tel" placeholder="Телефон">
+                </p>
+                <p>
+                    <label for="name">Имя</label>
+                    <input type="text" name="name" id="name" placeholder="Имя">
+                </p>
+            </div>
+            <div>
+                <p>
+                    <label for="file">Файл</label>
+                    <input type="file" name="file" id="file">
+                </p>
+                <p>
+                    <label for="checkbox">Я прочитал пользовательское соглашение</label>
+                    <input type="checkbox" name="checkbox" id="checkbox" checkedv required>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <label for="date">Дата рождения</label>
+                    <input type="date" name="date" id="date">
+                </p>
+                <p>
+                    <label for="age">Возраст</label>
+                    <input type="number" name="age" id="age" min="12" max="100" required>
+                </p>
+            </div>
+            <div>
+                <label for="about">Дополнительная информация</label><br>
+                <textarea id="about" name="about" rows="3" cols="10" maxlength="30" minlength="10" required></textarea>
+            </div>
+            <div id="select-city">
+                <label for="city">Город</label><br>
+                <select name="select" id="city" size="2" multiple required>
+                    <option value="moscow">Москва</option>
+                    <option value="spb">Санкт-Петербург</option>
+                </select>
+            </div>
+        </div>
+        <fieldset>
+            <legend>Уведомления</legend>
+            <div>
+                <input type="radio" id="type1" name="drone" value="huey" checked />
+                <label for="type1">Все уведомлления</label>
+            </div>
+            <div>
+                <input type="radio" id="type2" name="drone" value="dewey" />
+                <label for="type2">Уведомления только плохой погоде</label>
+            </div>
+            <div>
+                <input type="radio" id="type3" name="drone" value="louie" />
+                <label for="type3">Я не хочу получать уведомления</label>
+            </div>
+        </fieldset>
+        <div>
+            <input type="submit" value="Зарегистрироваться" name="submit" id="submit" required>
+        </div>
+    </form>
+        <article id="forecast">
+            <p id="3" class="ind"></p>
+            <h2>Прогноз погоды</h2>
+            <img class="center" src="https://sun9-53.userapi.com/impg/3Mg2vDRlu3nmULnc6FRrcOHN84AUOBG8AKK_9Q/xTAzz-JixB4.jpg?size=900x400&quality=95&sign=ddc42a868fb25a3ca064cffabc8f4461&c_uniq_tag=Q02kTAjkG8eOEFLvdvwnjQoj-ScnfSSSX1FeqxIRV2k&type=album" alt="Прогноз погоды" width="400" height="200">
+            <br>
+            <img class="center" src="Untitled.png" alt="Прогноз погоды" usemap="#shapes">
+            <map name="shapes">
+                <area alt="rect" coords="0, 0, 200, 200" shape="rect" href="https://weather.rambler.ru/v-moskve/today/">
+                <area alt="circle" coords="303, 98, 98" shape="circle" href="https://weather.rambler.ru/v-moskve/tomorrow/"/>
+                <area alt="poly" coords="410, 102, 475, 7, 585, 6, 585, 195" shape="poly" href="https://weather.rambler.ru/v-moskve/30-days/?updated"/>
+            </map>
+        </article>
+        <article id="article_map">
+            <h2 id="map">Карта погоды</h2>
+            <iframe class="center" width="650px" height="650" src="https://embed.windy.com/embed2.html?lat=55.735&lon=37.738&detailLat=55.735&detailLon=37.738&width=650&height=450&zoom=8&level=surface&overlay=temp&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1"></iframe>
+        </article>
+        <article id="video_article">
+            <h2 id="video">Природные явления</h2>
+            <iframe class="center" width="893" height="502" src="https://www.youtube.com/embed/Ha0DaF-D9Xk" title="7 САМЫХ РЕДКИХ ПРИРОДНЫХ ЯВЛЕНИЙ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </article>
+        <article id="list">
+            <h2>Список месяцев</h2>
+            <ol type="I" start="9">
+                <li>Сентябрь</li>
+                <ul>
+                    <li><a href="https://world-weather.ru/pogoda/russia/moscow/15-september/">Погода на 15 сентября</a></li>
+                    <li><a href="https://world-weather.ru/pogoda/russia/moscow/16-september/">Погода на 16 сентября</a></li>
+                    <li><a href="https://world-weather.ru/pogoda/russia/moscow/17-september/">Погода на 17 сентября</a></li>
+                    <li><a href="https://world-weather.ru/pogoda/russia/moscow/18-september/">Погода на 18 сентября</a></li>
+                </ul>
+                <li>Октябрь</li>
+                <li>Ноябрь</li>
+                <li>Декабрь</li>
+                <li value="1">Январь</li>
+                <li>Февраль</li>
+                <li>Март</li>
+                <li>Апрель</li>
+                <li>Май</li>
+                <li>Июнь</li>
+                <li>Июль</li>
+                <li>Август</li>
+            </ol>
+        </article>
+    </div>
+    <section>
+        <p id="1" class="ind"></p>
+        <h2>Что такое прогноз погоды</h2>
+        <p> <b>Прогноз погоды</b> — научно обоснованное предположение о том, какая погода будет в определенное время в определенном месте. <br>
+                Наука о погоде и методах ее предсказания называется <em>синоптической метеорологией</em>.
+                Она является частью <strong>метеорологии</strong> — науки, изучающей атмосферу Земли и происходящие в ней явления.
+                Специалистов, которые составляют прогнозы, называют <u>синоптиками</u>. <br>
+                Сегодня почти во всех странах существуют региональные национальные метеослужбы.
+                Гидрометцентр для России, <i>METEO FRANCE</i> для Франции, <i>Offenbach</i> для Германии и т. д.
+                Туда стекаются метеоданные о текущем состоянии атмосферы для дальнейших расчетов прогнозов погоды.
+                Все национальные метеослужбы обмениваются информацией с <abbr title="Всемирной метеорологической организацией">ВМО</abbr>,
+                членами которого являются 193 государства и 6 территорий.
+        </p>
+        <article>
+            <h3>Термины</h3>
+            <dl>
+                <dt>Погода</dt>
+                <dd>совокупность значений метеорологических элементов и атмосферных явлений, наблюдаемых в определённый момент времени в той или иной точке пространства.</dd>
+                <dd>сочетание температуры воздуха, облачности, осадков и ветра в определённое время в конкретной точке земного шара.</dd>
+                <dt>Прогноз погоды</dt>
+                <dd>научно обоснованное предположение о будущем состоянии погоды в определённом пункте или регионе на определённый период.</dd>
+                <dd>применение науки и техники для прогнозирования состояния атмосферы в заданном месте и времени.</dd>
+                <dt>Атмосферное давление</dt>
+                <dd>давление атмосферы, действующее на все находящиеся в ней предметы и на земную поверхность, равное модулю силы, действующей в атмосфере, на единицу площади поверхности по нормали к ней.</dd>
+                <dt>Гроза</dt>
+                <dd>атмосферное явление, при котором внутри облаков или между облаками и земной поверхностью возникают электрические разряды — молнии, сопровождаемые громом.</dd>
+                <dt>Метеостанция</dt>
+                <dd>совокупность различных приборов для метеорологических измерений (наблюдения за погодой).</dd>
+            </dl>
+        </article>
+        <article>
+            <blockquote>
+                <pre><cite>Алёна Фроловна «У природы нет плохой погоды»</cite><br>
+У природы нет плохой погоды —
+Каждая погода благодать.
+Дождь ли снег — любое время года
+Надо благодарно принимать</pre>
+            </blockquote>
+        </article>
+    </section>
+    <section>
+        <p id="2" class="ind"></p>
+        <h2>Климат России</h2>
+        <p>
+            Страна находится в средних и высоких широтах, из-за чего происходит четкое деление по сезонам. Атлантический воздух влияет на европейскую часть.
+            Погода там мягче, чем на востоке. Меньше всего солнца получают полярные острова России, максимальное значение достигается в Западном Предкавказье.
+            Территория страны лежит сразу в четырех основных климатических поясах. Каждый из них имеет свои показатели температуры и нормы осадков.
+            С востока на запад наблюдается переход муссонного климата в континентальный. Центральная часть характеризуется отчетливым разграничением времен года.
+            На юге отметка термометра зимой редко опускается ниже 0˚C.
+        </p>
+        <article>
+            <img src="pictures/cfd-1.png" class="right" alt="Карта центральной России" height="200" width="200">
+            <h3>Центральная Россия</h3>
+            <p>
+            Зима начинается с конца ноября и длится до середины марта. В зависимости от региона январская температура колеблется от -12˚C до -25˚C. Выпадает много снега, который тает только с наступлением оттепелей. Экстремально низкие температуры приходятся на январь. Февраль запоминается ветрами, часто ураганными. Сильные снегопады в последние несколько лет приходятся на начало марта.
+            Природа оживает в апреле, но положительные температуры устанавливаются только в следующем месяце. В отдельных регионах угроза заморозков возникает в начале июня.
+            Лето теплое, и продолжается 3 месяца. Циклоны приносят грозы и ливни. Ночные заморозки случаются уже в сентябре. На этот месяц приходится много осадков.
+            В октябре происходит резкое похолодание, с деревьев облетает листва, идут дожди, может выпасть мокрый снег.
+            </p>
+        </article>
+        <article>
+            <h3>Сибирь</h3>
+            <p>
+                Один из самых крупных и самых холодных регионов России.
+                Зима малоснежная, но очень холодная. На отдаленных территориях столбик термометра показывает более -40˚C.
+                <img src="pictures/sibir-na-karte-rossii.png" class="left" alt="Карта Сибири" height="200" width="300">Снегопады и ветра случаются нечасто. Снег тает в апреле, а в регионе с вечной мерзлотой тепло приходит только в июне. Летние отметки составляют +20˚С, осадков мало.
+                В сентябре начинается календарная осень, воздух быстро остывает. К октябрю дожди сменяются снегом.
+            </p>
+
+        </article>
+        <article>
+            <h3>Дальний Восток</h3>
+            <p>
+                Климат отличается разнообразием, он колеблется от континентального до муссонного.
+                Примерная зимняя температура составляет -24˚C, выпадает много снега.
+                На весеннее время приходится мало осадков. Лето жаркое, с повышенной влажностью, август считается периодом затяжных дождей.
+                <img src="pictures/dv.png" alt="Карта Дальнего востока" class="right" height="200" width="300"> На Курилах господствуют туманы, в Магадане начинаются белые ночи. Начало осени теплое, но дождливое.
+                Отметки на термометре в середине октября показывают -14˚C. Через месяц наступают зимние морозы.
+            </p>
+
+        </article>
+        <article>
+            <img src="pictures/1685079118_news638.png" alt="Карта Дальнего востока" class="right" height="200" width="300">
+            <h3>Краснодарский край</h3>
+            <p>
+                Минимальная январская температура составляет 0˚C, почва не промерзает.
+                Выпавший снег быстро сходит.
+                Большинство осадков выпадает весной, они становятся причиной многочисленных паводков.
+                Летние температуры в среднем составляют 30˚C, во второй половине начинается засуха. Осень теплая и затяжная.
+            </p>
+        </article>
+    </section>
+    <section>
+        <h2>Галерея</h2>
+        <div class="flex" id="gallery">
+            <div class="gallery">
+                <img class="gallery" src="https://i.pinimg.com/originals/86/d2/23/86d223da0fa412d460ed57b980e985a9.jpg" alt="Прогноз погоды" width="400">
+                <img class="gallery" src="https://gas-kvas.com/uploads/posts/2023-02/1675455067_gas-kvas-com-p-fonovie-risunki-sneg-2.jpg" alt="Прогноз погоды" width="400">
+                <img class="gallery" src="https://images.wallpaperscraft.ru/image/single/kapli_dozhd_vodopad_80973_800x1280.jpg" alt="Прогноз погоды" width="400">
+            </div>
+            <div class="gallery">
+                <img class="gallery" src="https://phonoteka.org/uploads/posts/2021-07/1625675695_49-phonoteka-org-p-grad-art-krasivo-52.jpg" alt="Прогноз погоды" width="400">
+                <img class="gallery" src="https://fonewalls.com/wp-content/uploads/2160x3840-Background-HD-Wallpaper-650-768x1365.jpg" alt="Прогноз погоды" width="400">
+                <img class="gallery" src="https://stolicaonego.ru/images/pics/19/cYZpvoWUPbg.jpg" alt="Прогноз погоды" width="400">
+            </div>
+            <div class="gallery">
+                <img class="gallery" src="https://i.pinimg.com/736x/7b/bb/24/7bbb249e223bbbccec1f948cc2d3ce96.jpg" alt="Прогноз погоды" width="400">
+                <img class="gallery" src="https://static.mk.ru/upload/entities/2021/06/14/07/articles/facebookPicture/44/56/2a/d8/d41aa129d36ecf5f701a7f16e12a510e.jpg" alt="Прогноз погоды" width="400">
+                <img class="gallery" src="https://phonoteka.org/uploads/posts/2021-07/1625675695_49-phonoteka-org-p-grad-art-krasivo-52.jpg" alt="Прогноз погоды" width="400">
+            </div>
+        </div>
+
+    </section>
+</main>
+<footer>
+    <address>
+        <p>
+            Телефон:
+            <a href="tel: +79398523931"> +7(939)852-39-31</a><br>
+            Почта:
+            <a href="mailto: vlad2004ik04@mail.ru">vlad2004ik04@mail.ru</a>
+        </p>
+    </address>
+</footer>
+</body>
+</html>
