@@ -20,13 +20,21 @@
 <div id="nav">
     <nav>
         <ul class="horizontal-list">
-            <li><a href="#reg">Регистрация</a></li>
-            <li><a href="#1">Что такое</a></li>
-            <li><a href="#2">Климат России</a></li>
-            <li><a href="#map">Карта погоды</a></li>
-            <li><a href="#3">Прогноз погоды</a></li>
+            <li><a href="#reg"><span>Регистрация</span></a></li>
+            <li><a href="#1"><span>Что такое</span></a></li>
+            <li><a href="#2"><span>Климат России</span></a></li>
+            <li><a href="#map"><span>Карта погоды</span></a></li>
+            <li><a href="#3"><span>Прогноз погоды</span></a></li>
         </ul>
     </nav>
+</div>
+<div class="notifications">
+    <ol class="notifications">
+        <li><a>На выходных будет хорошая погода</a></li>
+        <li><a>Завтра будет дождь! Возьмите зонт</a></li>
+        <li><a>Появился прогноз погоды на ноябрь</a></li>
+        <li><a>Зима будет холодной!</a></li>
+    </ol>
 </div>
 <main>
     <div class="f">
@@ -60,7 +68,7 @@
                 </p>
                 <p>
                     <label for="checkbox">Я прочитал пользовательское соглашение</label>
-                    <input type="checkbox" name="checkbox" id="checkbox" checkedv required>
+                    <input type="checkbox" name="checkbox" id="checkbox" required>
                 </p>
             </div>
             <div>
@@ -75,7 +83,7 @@
             </div>
             <div>
                 <label for="about">Дополнительная информация</label><br>
-                <textarea id="about" name="about" rows="3" cols="10" maxlength="30" minlength="10" required></textarea>
+                <textarea id="about" name="about" rows="3" cols="10" maxlength="30" minlength="10" ></textarea>
             </div>
             <div id="select-city">
                 <label for="city">Город</label><br>
@@ -244,13 +252,40 @@
         <h2>Галерея</h2>
         <div class="flex" id="gallery">
             <div class="gallery">
-                <img class="gallery" src="https://i.pinimg.com/originals/86/d2/23/86d223da0fa412d460ed57b980e985a9.jpg" alt="Прогноз погоды" width="400">
+                <div class="img_gallery">
+                    <div id="lightning">
+                        <div id="text_lightning">
+                            <h3>Молния</h3>
+                            Электрический искровой разряд в атмосфере, который происходит во время грозы, проявляется яркой вспышкой света и сопровождается громом.<br><br>
+                            <button class="btn-one"><span>Подробнее</span></button>
+                        </div>
+                    </div>
+                    <img id="img_lightning" src="https://i.pinimg.com/originals/86/d2/23/86d223da0fa412d460ed57b980e985a9.jpg" alt="Прогноз погоды" width="400">
+                </div>
                 <img class="gallery" src="https://gas-kvas.com/uploads/posts/2023-02/1675455067_gas-kvas-com-p-fonovie-risunki-sneg-2.jpg" alt="Прогноз погоды" width="400">
                 <img class="gallery" src="https://images.wallpaperscraft.ru/image/single/kapli_dozhd_vodopad_80973_800x1280.jpg" alt="Прогноз погоды" width="400">
             </div>
             <div class="gallery">
-                <img class="gallery" src="https://phonoteka.org/uploads/posts/2021-07/1625675695_49-phonoteka-org-p-grad-art-krasivo-52.jpg" alt="Прогноз погоды" width="400">
-                <img class="gallery" src="https://fonewalls.com/wp-content/uploads/2160x3840-Background-HD-Wallpaper-650-768x1365.jpg" alt="Прогноз погоды" width="400">
+                <div class="img_gallery" id="div_hail">
+                    <div id="hail">
+                        <div id="text_hail">
+                            <h3>Град</h3>
+                            Вид ливневых осадков в виде частиц льда преимущественно округлой формы.<br><br>
+                            <button class="btn-two"><span>Подробнее</span></button>
+                        </div>
+                    </div>
+                    <img id="img_hail" src="https://phonoteka.org/uploads/posts/2021-07/1625675695_49-phonoteka-org-p-grad-art-krasivo-52.jpg" alt="Прогноз погоды" width="400">
+                </div>
+                <div class="img_gallery" id="div_snow">
+                    <div id="snow">
+                        <div id="text_snow">
+                            <h3>Снег</h3>
+                            Форма атмосферных осадков, состоящая из мелких кристаллов льда. Относится к обложным осадкам, выпадающим на земную поверхность.<br><br>
+                            <button class="btn-two"><span>Подробнее</span></button>
+                        </div>
+                    </div>
+                    <img id="img_snow" src="https://fonewalls.com/wp-content/uploads/2160x3840-Background-HD-Wallpaper-650-768x1365.jpg" alt="Прогноз погоды" width="400">
+                </div>
                 <img class="gallery" src="https://stolicaonego.ru/images/pics/19/cYZpvoWUPbg.jpg" alt="Прогноз погоды" width="400">
             </div>
             <div class="gallery">
@@ -259,8 +294,19 @@
                 <img class="gallery" src="https://phonoteka.org/uploads/posts/2021-07/1625675695_49-phonoteka-org-p-grad-art-krasivo-52.jpg" alt="Прогноз погоды" width="400">
             </div>
         </div>
-
     </section>
+    <article>
+        <h2>Видео</h2><br>
+        <div id="div_video">
+            <div id="vid">
+                <div id="text_video">
+                    <h3>Дождь</h3>
+                    Дождь — атмосферные осадки, выпадающие из облаков в виде капель жидкости со средним диаметром от 0,5 до 6—7 мм.<br><br>
+                </div>
+            </div>
+        <video controls width="893" height="502"><source src="videos/rain.mp4" type="video/mp4"></video>
+        </div>
+    </article>
 </main>
 <footer>
     <address>

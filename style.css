@@ -26,6 +26,7 @@ div.gallery {
     flex-direction: column;
 }
 div.flex {
+    width: auto;
     flex-flow: row wrap;
     display: flex;
 }
@@ -82,6 +83,7 @@ input::placeholder {
     color: darkblue;
 }
 #nav {
+    z-index: 10;
     margin-right: 0;
     overflow: hidden;
     position: sticky;
@@ -107,18 +109,22 @@ select {
     font-size: 16px;
 }
 #submit {
+    transition: all 0.2s ease-out;
+    box-shadow:
+            4px 3px 3px grey;
     font-size: 18px;
+    background: #f7e7c7;
     display: block;
     height: 30px;
-    width: auto;
-    margin: 10px;
+    width: 200px;
+    margin: 15px 5px 15px 15px;
     float: left;
 }
 #submit:hover {
-    background: lightgrey;
-}
-#submit:active {
-    background: darkgrey;
+    box-shadow:
+            -5px -3px 3px grey;
+    transition: all 0.2s ease-out;
+    transform: scale(1.15, 1.15);
 }
 form {
     width: 100%;
@@ -154,28 +160,36 @@ ul.horizontal-list {
     margin: 0 auto;
     list-style: none;
 }
-ul.horizontal-list li {
-    display: inline-block;
-    width: 150px;
-    height: 30px;
-    vertical-align: middle;
-    line-height: 30px;
-    background: #d7e7f7;
-    margin: 10px 40px 5px;
-    border-style: solid;
-    border-radius: 5px;
-}
-ul.horizontal-list li:hover {
-    background: #daeafa;
-}
-ul.horizontal-list li:active {
-    background: #dfefff;
-}
 ul.horizontal-list li a {
     display: block;
     color: black;
     text-decoration: none;
 }
+
+ul.horizontal-list li {
+    display: inline-block;
+    width: 150px;
+    height: 30px;
+    line-height: 30px;
+    background: #d7e7f7;
+    border: 1px black solid;
+    margin: 13px 40px 5px;
+    position: relative;
+
+    box-shadow: 0 0 40px 40px #d7e7f7 inset;
+    transition: all 150ms ease-in-out;
+}
+ul.horizontal-list li:hover {
+    transform: translate(0, -3px);
+    box-shadow: 0 0 10px 0 #30d5c8 inset, 0 0 3px 2px blue;
+}
+
+
+ul.horizontal-list li:active {
+    background: #d9e9f9;
+}
+
+
 article {
     overflow: hidden;
     margin-top:30px;
@@ -205,6 +219,194 @@ iframe.center {
     margin: 0 auto;
     width: 100%;
 }
+div.notifications {
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-bottom: 3px;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border: solid 1px;
+    border-radius: 50%;
+    background: #ffeec7;
+    position: fixed;
+    bottom: 15px;
+    right: 5px;
+}
+div.notifications::before  {
+    content: '🔔';
+    font-size: 24px;
+}
+div.notifications:hover {
+    justify-content: right;
+    border-radius: 10px;
+    border: 1px solid;
+    width: 350px;
+    height: 400px;
+    background: #ffefcf;
+}
+div.notifications:hover::before  {
+    font-size: 0;
+}
+ol.notifications {
+    list-style: none;
+    padding-right: 10px;
+    padding-left: 5px;
+    font-size: 16px;
+    display: none;
+    flex-direction: column;
+    justify-content: right;
+}
+div.notifications:hover ol.notifications {
+    display: flex;
+}
+ol.notifications li{
+    border: solid 1px;
+    counter-increment: count;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    background: #c9d9e9;
+    transition: all 400ms;
+    width: 300px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+ol.notifications li:hover {
+    transform: scale(1.05, 1.05);
+    background-color: #dfefff;
+}
+ol.notifications li a {
+    text-align: center;
+    width: inherit;
+    position: relative;
+    bottom: 10px;
+    margin-left: 30px;
+}
+ol.notifications li a::before {
+    content: counter(count);
+    position: relative;
+    top: 20px;
+    right: 30px;
+    background: #ffeeaa;
+    text-align: center;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    padding: 2px;
+}
+
+.btn-one {
+    border-style: none;
+    margin-left: 30px;
+    font-size: 18px;
+    background: lightgoldenrodyellow;
+    width: 110px;
+    height: 35px;
+    transition: all 0.2s ease-out;
+    position: relative;
+}
+.btn-one::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.3s;
+    border-top: solid blue 1px;
+    border-bottom: solid blue 1px;
+    transform: scale(0.1, 1);
+}
+.btn-one:hover::before {
+    transform: scale(1, 1);
+    opacity: 1;
+}
+
+.btn-two {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-size: 20px;
+    position: relative;
+    transition: 0.1s;
+    overflow: hidden;
+    z-index: 1;
+}
+.btn-two:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: lightblue;
+    border-radius: 10px;
+    z-index: -2;
+}
+.btn-two:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: cornflowerblue;
+    transition: all .3s;
+    border-radius: 10px;
+    z-index: -1;
+}
+.btn-two:hover:before {
+    width: 100%;
+}
+
+video {
+}
+#div_video {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    width: 900px;
+}
+#vid {
+    padding-left: 10px;
+    border: solid 1px;
+    border-radius: 10px;
+    transition: 0.5s;
+    font-size: 16px;
+    opacity: 0;
+    width: 60%;
+    background: #ffefcf;
+    height: 30%;
+    left: -5%;
+    top: 20%;
+    display: block;
+    position: absolute;
+    aspect-ratio: auto;
+}
+#div_video:hover #vid{
+    transition: 0.5s;
+    opacity: 1;
+}
+#text_vid {
+    position: absolute;
+}
+
+
+
+
+
+
 
 img {
     margin: 10px;
@@ -213,11 +415,115 @@ img.center {
     margin: 0 auto;
     display: block;
 }
-img.gallery {
 
+
+#lightning {
+    transition: all ease-in 0.1s;
+    font-size: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    aspect-ratio: auto;
+}
+#lightning button {
+    opacity: 0;
+}
+#text_lightning {
+    position: absolute;
+    bottom: 60px;
+    margin-left: 15px;
+}
+#lightning:hover {
+    transition: all ease-in 0.1s;
+    font-size: 16px;
+    box-shadow: 0 -400px 400px lightblue inset;
+}
+#lightning:hover button {
+    opacity: 1;
+}
+#img_lightning {
+    margin: 0;
+}
+
+
+#hail {
+    transition: 0.1s;
+    font-size: 0;
+    width: 100%;
+    height: 60%;
+    bottom: 0;
+    display: block;
+    position: absolute;
+    aspect-ratio: auto;
+}
+#hail button {
+    opacity: 0;
+}
+#text_hail {
+    position: absolute;
+    margin-left: 15px;
+}
+#div_hail:hover #hail{
+    font-size: 16px;
+    background: lightblue;
+    bottom: 0;
+}
+#div_hail:hover #img_hail {
+    transition: 0.3s;
+    transform: translate(0, -60%);
+}
+#div_hail:hover button {
+    opacity: 1;
+}
+#img_hail {
+    transition: 0.1s;
+    margin: 0;
+}
+
+
+
+#snow {
+    transition: 0.5s;
+    font-size: 16px;
+    width: 100%;
+    box-shadow: 0 -200px 200px lightblue inset;
+    height: 30%;
+    bottom: -10em;
+    display: block;
+    position: absolute;
+    aspect-ratio: auto;
+}
+
+#div_snow {
+    overflow: hidden;
+}
+#snow:hover {
+    transition: 0.5s;
+    transform: translate(0, -10em);
+}
+#text_snow {
+    position: absolute;
+    margin-left: 15px;
+}
+#img_snow {
+    margin: 0;
+}
+
+
+
+div.img_gallery {
+    position: relative;
+    margin: 3px auto;
+    display: block;
+    width: 400px;
+    aspect-ratio: auto;
+}
+img.gallery {
     margin: 3px auto;
     display: block;
     aspect-ratio: auto;
+
 }
 img.left {
     float: left;
@@ -234,6 +540,9 @@ footer {
     background: lightgrey;
     height: 60px;
 }
+
+
+
 @media (min-width: 1325px) and (max-width: 1600px) {
     form {
         bottom: 0;
@@ -283,6 +592,12 @@ footer {
     }
 }
 @media (max-width: 1325px) {
+    ul.horizontal-list li {
+        margin-bottom: 20px;
+    }
+    ul.horizontal-list li:hover {
+        margin-bottom: 20px;
+    }
     form {
         bottom: 0;
         width: 100%;
@@ -340,6 +655,7 @@ footer {
     }
 
     [for=burger] {
+        transition: ease-in .1s;
         z-index: 2;
         display: block;
         position: fixed;
@@ -355,8 +671,7 @@ footer {
 
     #nav {
         overflow: visible;
-        display: block;
-        visibility: hidden;
+        display: none;
         margin-right: 0;
         position: sticky;
         top: -5px;
@@ -382,8 +697,19 @@ footer {
     }
     #burger:checked + label {
         transform: rotate(30deg);
+        transition: ease-in .1s;
     }
     #burger:checked + label + #nav {
-        visibility: visible;
+        display: block;
+        animation: burger .5s;
+    }
+}
+
+@keyframes burger {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 0.95;
     }
 }
