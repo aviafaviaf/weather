@@ -531,6 +531,62 @@ img.left {
 img.right {
     float: right;
 }
+
+#cards1 {
+    justify-content: center;
+    margin-top: 20px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    > div {
+        margin: 40px 10px 10px 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        height: 520px;
+        width: 360px;
+    }
+    > div::before {
+        transition: 0.5s;
+        box-shadow: 0 0 40px lightblue;
+        border-radius: 6px;
+        right: 50px;
+        top: 0;
+        content: "";
+        transform: skewX(10deg);
+        background: linear-gradient(15deg, lavenderblush, lightblue);
+        position: absolute;
+        height: 100%;
+        width: 70%;
+    }
+    > div::after {
+
+    }
+    > div > div {
+        transition: 0.5s;
+        border-radius: 30px;
+        padding: 15px;
+        margin: 0 auto;
+        background: rgba(0, 0, 0, 0.05);
+        position: relative;
+        z-index: 1;
+    }
+    > div:hover {
+        &::before {
+            transform: skewX(0deg);
+            transition: 0.5s transform;
+        }
+        & > div {
+            transition: 0.5s;
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+    }
+}
+
+
 footer {
     font-family: 'Roboto', sans-serif;
     margin-top: 20px;
@@ -656,7 +712,7 @@ footer {
 
     [for=burger] {
         transition: ease-in .1s;
-        z-index: 2;
+        z-index: 15;
         display: block;
         position: fixed;
         width: 30px;
