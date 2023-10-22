@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Прогноз погоды</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="pictures/favicon.png">
+    <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
@@ -12,8 +12,8 @@
 <body>
 <header>
     <h1 id="Weather">Погода</h1>
-    <img id="logo" src="pictures/logo.png" alt="Погода" width="200" height="200">
-    <img src="pictures/logo.png" alt="Погода" width="40" height="40" id="fixedLogo">
+    <img id="logo" src="images/logo.png" alt="Погода" width="200" height="200">
+    <img src="images/logo.png" alt="Погода" width="40" height="40" id="fixedLogo">
 </header>
 <input type="checkbox" id="burger">
 <label for="burger"></label>
@@ -37,81 +37,75 @@
     </ol>
 </div>
 <main>
+    <div id="auth">
+        <span id="cubes1"></span>
+        <span id="cubes2"></span>
+        <form id="registration" action="" method="get" class="auth">
+                <h2 id="reg">Регистрация</h2>
+                <div class="flex">
+                    <div>
+                        <p>
+                           <label for="email">Почта</label>
+                           <input type="email" name="email" id="email" placeholder="Почта" required>
+                        </p>
+                        <p>
+                            <label for="password">Пароль</label>
+                            <input type="password" name="password" id="password" placeholder="******" required>
+                        </p>
+                    </div>
+                    <div>
+                        <p>
+                            <label for="tel">Телефон</label>
+                            <input type="tel" pattern="[+][7][0-9]{10}" name="tel" id="tel" placeholder="Телефон">
+                        </p>
+                        <p>
+                            <label for="name">Имя</label>
+                            <input type="text" name="name" id="name" placeholder="Имя">
+                        </p>
+                    </div>
+                    <div id="select-city">
+                        <label for="city">Город</label><br>
+                        <select name="select" id="city" size="2" multiple required>
+                            <option value="moscow">Москва</option>
+                            <option value="spb">Санкт-Петербург</option>
+                        </select>
+                    </div>
+                </div>
+                <fieldset>
+                    <legend>Уведомления</legend>
+                    <div>
+                        <input type="radio" id="type1" name="drone" value="huey" checked />
+                        <label for="type1">Все уведомлления</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="type2" name="drone" value="dewey" />
+                        <label for="type2">Уведомления только о плохой погоде</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="type3" name="drone" value="louie" />
+                        <label for="type3">Я не хочу получать уведомления</label>
+                    </div>
+                </fieldset>
+                <div>
+                    <input type="submit" value="Зарегистрироваться" name="submit" id="submit" required>
+                </div>
+            </form>
+        <form id="login" action="" method="get" class="auth">
+                <h2>Войти</h2>
+                <div>
+                    <p>
+                        <label for="em">Почта</label>
+                        <input type="email" name="email" id="em" placeholder="Почта" required>
+                    </p>
+                    <p>
+                        <label for="pass">Пароль</label>
+                        <input type="password" name="password" id="pass" placeholder="******" required>
+                    </p>
+                    <input type="submit" value="Войти" name="submit" id="sub" required>
+                </div>
+            </form>
+    </div>
     <div class="f">
-        <form action="" method="get">
-        <h2 id="reg">Регистрация</h2>
-        <div class="flex">
-            <div>
-                <p>
-                   <label for="email">Почта</label>
-                   <input type="email" name="email" id="email" placeholder="Почта" required>
-                </p>
-                <p>
-                    <label for="password">Пароль</label>
-                    <input type="password" name="password" id="password" placeholder="******" required>
-                </p>
-            </div>
-            <div>
-                <p>
-                    <label for="tel">Телефон</label>
-                    <input type="tel" pattern="[+][7][0-9]{10}" name="tel" id="tel" placeholder="Телефон">
-                </p>
-                <p>
-                    <label for="name">Имя</label>
-                    <input type="text" name="name" id="name" placeholder="Имя">
-                </p>
-            </div>
-            <div>
-                <p>
-                    <label for="file">Файл</label>
-                    <input type="file" name="file" id="file">
-                </p>
-                <p>
-                    <label for="checkbox">Я прочитал пользовательское соглашение</label>
-                    <input type="checkbox" name="checkbox" id="checkbox" required>
-                </p>
-            </div>
-            <div>
-                <p>
-                    <label for="date">Дата рождения</label>
-                    <input type="date" name="date" id="date">
-                </p>
-                <p>
-                    <label for="age">Возраст</label>
-                    <input type="number" name="age" id="age" min="12" max="100" required>
-                </p>
-            </div>
-            <div>
-                <label for="about">Дополнительная информация</label><br>
-                <textarea id="about" name="about" rows="3" cols="10" maxlength="30" minlength="10" ></textarea>
-            </div>
-            <div id="select-city">
-                <label for="city">Город</label><br>
-                <select name="select" id="city" size="2" multiple required>
-                    <option value="moscow">Москва</option>
-                    <option value="spb">Санкт-Петербург</option>
-                </select>
-            </div>
-        </div>
-        <fieldset>
-            <legend>Уведомления</legend>
-            <div>
-                <input type="radio" id="type1" name="drone" value="huey" checked />
-                <label for="type1">Все уведомлления</label>
-            </div>
-            <div>
-                <input type="radio" id="type2" name="drone" value="dewey" />
-                <label for="type2">Уведомления только плохой погоде</label>
-            </div>
-            <div>
-                <input type="radio" id="type3" name="drone" value="louie" />
-                <label for="type3">Я не хочу получать уведомления</label>
-            </div>
-        </fieldset>
-        <div>
-            <input type="submit" value="Зарегистрироваться" name="submit" id="submit" required>
-        </div>
-    </form>
         <article id="forecast">
             <p id="3" class="ind"></p>
             <h2>Прогноз погоды</h2>
@@ -207,7 +201,7 @@
             На юге отметка термометра зимой редко опускается ниже 0˚C.
         </p>
         <article>
-            <img src="pictures/cfd-1.png" class="right" alt="Карта центральной России" height="200" width="200">
+            <img src="images/cfd-1.png" class="right" alt="Карта центральной России" height="200" width="200">
             <h3>Центральная Россия</h3>
             <p>
             Зима начинается с конца ноября и длится до середины марта. В зависимости от региона январская температура колеблется от -12˚C до -25˚C. Выпадает много снега, который тает только с наступлением оттепелей. Экстремально низкие температуры приходятся на январь. Февраль запоминается ветрами, часто ураганными. Сильные снегопады в последние несколько лет приходятся на начало марта.
@@ -221,7 +215,7 @@
             <p>
                 Один из самых крупных и самых холодных регионов России.
                 Зима малоснежная, но очень холодная. На отдаленных территориях столбик термометра показывает более -40˚C.
-                <img src="pictures/sibir-na-karte-rossii.png" class="left" alt="Карта Сибири" height="200" width="300">Снегопады и ветра случаются нечасто. Снег тает в апреле, а в регионе с вечной мерзлотой тепло приходит только в июне. Летние отметки составляют +20˚С, осадков мало.
+                <img src="images/sibir-na-karte-rossii.png" class="left" alt="Карта Сибири" height="200" width="300">Снегопады и ветра случаются нечасто. Снег тает в апреле, а в регионе с вечной мерзлотой тепло приходит только в июне. Летние отметки составляют +20˚С, осадков мало.
                 В сентябре начинается календарная осень, воздух быстро остывает. К октябрю дожди сменяются снегом.
             </p>
 
@@ -232,13 +226,13 @@
                 Климат отличается разнообразием, он колеблется от континентального до муссонного.
                 Примерная зимняя температура составляет -24˚C, выпадает много снега.
                 На весеннее время приходится мало осадков. Лето жаркое, с повышенной влажностью, август считается периодом затяжных дождей.
-                <img src="pictures/dv.png" alt="Карта Дальнего востока" class="right" height="200" width="300"> На Курилах господствуют туманы, в Магадане начинаются белые ночи. Начало осени теплое, но дождливое.
+                <img src="images/dv.png" alt="Карта Дальнего востока" class="right" height="200" width="300"> На Курилах господствуют туманы, в Магадане начинаются белые ночи. Начало осени теплое, но дождливое.
                 Отметки на термометре в середине октября показывают -14˚C. Через месяц наступают зимние морозы.
             </p>
 
         </article>
         <article>
-            <img src="pictures/1685079118_news638.png" alt="Карта Дальнего востока" class="right" height="200" width="300">
+            <img src="images/1685079118_news638.png" alt="Карта Дальнего востока" class="right" height="200" width="300">
             <h3>Краснодарский край</h3>
             <p>
                 Минимальная январская температура составляет 0˚C, почва не промерзает.
@@ -250,23 +244,97 @@
     </section>
     <div id="cards1">
         <div>
+            <span></span>
             <div>
-                <h3>Дождь!</h3>
+                <h3>Как образуется дождь?</h3>
                 <p>
-                    Зонт — специальное складное приспособление для защиты от дождя, солнца и даже снега.
-                    Со временем он стал не только полезной вещью, но и стильным аксессуаром.
+                    Обычно для того, чтобы пошел дождь, необходимо движение теплых воздушных масс навстречу холодным или наоборот. Такие массы содержат облака и влагу, и когда эти теплые массы охлаждаются холодными массами, образуются капельки воды, которые выпадают в виде дождя.
+                </p>
+                <button class="btn-one"><span>Подробнее</span></button>
+            </div>
+        </div>
+        <div>
+            <span></span>
+            <div>
+                <h3>Что такое молния?</h3>
+                <p>
+                    Молния — электрический искровой разряд в атмосфере, происходит во время грозы, проявляющийся яркой вспышкой света и сопровождающим её громом.
+                </p>
+                <button class="btn-one"><span>Подробнее</span></button>
+            </div>
+        </div>
+        <div>
+            <span></span>
+            <div>
+                <h3>Откуда берётся ветер?</h3>
+                <p>
+                    Ветер возникает в результате неравномерного распределения атмосферного давления, он направлен от зоны высокого давления к зоне низкого давления.
+                </p>
+                <button class="btn-one"><span>Подробнее</span></button>
+            </div>
+        </div>
+    </div>
+    <div id="cards2">
+        <div>
+            <div>
+                <h3>Как образуется дождь?</h3>
+                <p>
+                    Обычно для того, чтобы пошел дождь, необходимо движение теплых воздушных масс навстречу холодным или наоборот. Такие массы содержат облака и влагу, и когда эти теплые массы охлаждаются холодными массами, образуются капельки воды, которые выпадают в виде дождя.
                 </p>
                 <button class="btn-one"><span>Подробнее</span></button>
             </div>
         </div>
         <div>
             <div>
-
+                <h3>Что такое молния?</h3>
+                <p>
+                    Молния — электрический искровой разряд в атмосфере, происходит во время грозы, проявляющийся яркой вспышкой света и сопровождающим её громом.
+                </p>
+                <button class="btn-one"><span>Подробнее</span></button>
             </div>
         </div>
         <div>
             <div>
-
+                <h3>Откуда берётся ветер?</h3>
+                <p>
+                    Ветер возникает в результате неравномерного распределения атмосферного давления, он направлен от зоны высокого давления к зоне низкого давления.
+                </p>
+                <button class="btn-one"><span>Подробнее</span></button>
+            </div>
+        </div>
+    </div>
+    <div id="cards3">
+        <div>
+            <span></span>
+            <span></span>
+            <div>
+                <h3>Как образуется дождь?</h3>
+                <p>
+                    Обычно для того, чтобы пошел дождь, необходимо движение теплых воздушных масс навстречу холодным или наоборот. Такие массы содержат облака и влагу, и когда эти теплые массы охлаждаются холодными массами, образуются капельки воды, которые выпадают в виде дождя.
+                </p>
+                <button class="btn-one"><span>Подробнее</span></button>
+            </div>
+        </div>
+        <div>
+            <span></span>
+            <span></span>
+            <div>
+                <h3>Что такое молния?</h3>
+                <p>
+                    Молния — электрический искровой разряд в атмосфере, происходит во время грозы, проявляющийся яркой вспышкой света и сопровождающим её громом.
+                </p>
+                <button class="btn-one"><span>Подробнее</span></button>
+            </div>
+        </div>
+        <div>
+            <span></span>
+            <span></span>
+            <div>
+                <h3>Откуда берётся ветер?</h3>
+                <p>
+                    Ветер возникает в результате неравномерного распределения атмосферного давления, он направлен от зоны высокого давления к зоне низкого давления.
+                </p>
+                <button class="btn-one"><span>Подробнее</span></button>
             </div>
         </div>
     </div>
@@ -339,6 +407,17 @@
             <a href="mailto: vlad2004ik04@mail.ru">vlad2004ik04@mail.ru</a>
         </p>
     </address>
+    <div id="icons">
+        <div class="icon">
+            <img alt="vk" class="none" src="images/vk.png" width="30px" height="18px">
+        </div>
+        <div class="icon">
+            <img alt="yt" class="none" src="images/youtube.png" width="30px" height="20px">
+        </div>
+        <div class="icon">
+            <img alt="ig" class="none" src="images/instagram.png" width="25px" height="25px">
+        </div>
+    </div>
 </footer>
 </body>
 </html>

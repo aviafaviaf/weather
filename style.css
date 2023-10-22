@@ -66,7 +66,7 @@ fieldset {
 }
 #fixedLogo {
     margin: 0;
-    z-index: 1;
+    z-index: 16;
     position: fixed;
     top:5px;
     right: 15px;
@@ -89,10 +89,10 @@ input::placeholder {
     position: sticky;
     top: -5px;
     padding: 0;
+    border-top: solid 1px;
     height: 55px;
     margin-top: 0;
-    border-style: solid solid solid solid;
-    border-top-width: 1px;
+    box-shadow: 0 5px 10px darkgrey;
     border-radius: 0 0 5px 5px;
     text-align: center;
     background:#ffeec7;
@@ -110,32 +110,148 @@ select {
 }
 #submit {
     transition: all 0.2s ease-out;
-    box-shadow:
-            4px 3px 3px grey;
+    box-shadow: 0 0 3px grey;
     font-size: 18px;
     background: #f7e7c7;
     display: block;
     height: 30px;
-    width: 200px;
+    padding-left: 20px;
+    padding-right: 20px;
     margin: 15px 5px 15px 15px;
     float: left;
 }
 #submit:hover {
-    box-shadow:
-            -5px -3px 3px grey;
+    cursor: pointer;
+    box-shadow: 0 0 3px grey;
     transition: all 0.2s ease-out;
-    transform: scale(1.15, 1.15);
+    transform: translateY(-3px);
 }
-form {
-    width: 100%;
-    bottom: 0;
+#sub {
+    transition: all 0.2s ease-out;
+    box-shadow: 0 0 3px grey;
+    font-size: 18px;
+    background: #f7e7c7;
+    display: block;
+    height: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 15px 5px 15px 15px;
+    float: left;
+}
+#sub:hover {
+    cursor: pointer;
+    box-shadow: 0 0 3px grey;
+    transition: all 0.2s ease-out;
+    transform: translateY(-3px);
+}
+#auth {
+    border-radius: 5px;
+    margin: 40px 15px 15px 15px;
+    background: rgba(215, 231, 247);
+    box-shadow: 0 0 10px darkgrey;
+    justify-content: space-around;
     overflow: hidden;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+form.auth {
+    border: solid 1px;
+    position: relative;
+    z-index: 2;
+    backdrop-filter: blur(10px);
+    bottom: 0;
     margin: 20px 0 20px 0;
     padding: 10px;
-    background: #d7e7f7;
-    border-style:solid;
+    background: rgba(0, 0, 255, 0.02);
+    box-shadow: 0 0 10px darkgrey;
     border-radius: 5px;
 }
+#login {
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+}
+#auth span {
+    position: absolute;
+}
+#cubes1::before {
+    animation: cubes-auth infinite 25s;
+    content: "";
+    box-shadow: 0 0 10px rgba(100, 100, 200, 1);
+    top: 30px;
+    left: -500px;
+    border-radius: 3px;
+    z-index: 1;
+    background: rgba(100, 100, 200, 0.5);
+    position: absolute;
+    --move: 40deg;
+    --size: 30px;
+    width: var(--size);
+    height: var(--size);
+}
+#cubes1::after {
+    animation: cubes-auth infinite 15s;
+    content: "";
+    box-shadow: 0 0 10px rgba(100, 100, 200, 1);
+    top: 250px;
+    left: -300px;
+    border-radius: 3px;
+    z-index: 1;
+    background: rgba(100, 100, 200, 0.5);
+    position: absolute;
+    --move: 70deg;
+    --size: 60px;
+    width: var(--size);
+    height: var(--size);
+}
+#cubes2::before {
+    animation: cubes-auth infinite 30s;
+    content: "";
+    box-shadow: 0 0 10px rgba(100, 100, 200, 1);
+    left: 500px;
+    top: 30px;
+    border-radius: 3px;
+    z-index: 1;
+    background: rgba(100, 100, 200, 0.5);
+    position: absolute;
+    --move: -40deg;
+    --size: 50px;
+    width: var(--size);
+    height: var(--size);
+}
+#cubes2::after {
+    animation: cubes-auth infinite 20s linear;
+    content: "";
+    left: 600px;
+    top: 250px;
+    box-shadow: 0 0 10px rgba(100, 100, 200, 1);
+    bottom: 30px;
+    border-radius: 3px;
+    z-index: 1;
+    background: rgba(100, 100, 200, 0.5);
+    position: absolute;
+    --move: -110deg;
+    --size: 30px;
+    width: var(--size);
+    height: var(--size);
+}
+@keyframes cubes-auth {
+    from {
+        transform: translate(0, 0);
+    }
+    33% {
+        transform: translate(calc((100px - var(--size)) * 15 * sin(var(--move))), calc((100px - var(--size)) * 4 * cos(var(--move))));
+    }
+    66% {
+        transform: translate(calc((100px - var(--size)) * 22 * sin(var(--move))), calc((100px - var(--size)) * 3 * cos(var(--move))));
+    }
+    to {
+        transform: translate(0, 0);
+    }
+}
+
 textarea {
     background: lavenderblush;
 }
@@ -152,8 +268,8 @@ header {
     margin-bottom: 0;
     padding: 3px;
     text-align: center;
+    box-shadow: 0 0px 20px darkgrey;
     background:#ffeec7;
-    border-style:solid solid none solid;
     border-radius: 30px 30px 0 0;
 }
 ul.horizontal-list {
@@ -195,14 +311,14 @@ article {
     margin-top:30px;
     padding: 20px;
     background: #d7e7f7;
-    border-style:solid;
+    box-shadow: 0 0 10px darkgrey;
     border-radius: 5px;
 }
 section {
     margin-top:20px;
     padding: 5px 20px 15px 20px;
     background: #d9e9f9;
-    border-style:solid;
+    box-shadow: 0 0 10px darkgrey;
     border-radius: 5px;
 }
 p.ind {
@@ -220,6 +336,7 @@ iframe.center {
     width: 100%;
 }
 div.notifications {
+    z-index: 14;
     font-size: 24px;
     display: flex;
     justify-content: center;
@@ -561,10 +678,32 @@ img.right {
         height: 100%;
         width: 70%;
     }
-    > div::after {
-
+    > div > span::after {
+        border-radius: 7px;
+        transition: 0.5s;
+        opacity: 0;
+        content: "";
+        position: absolute;
+        height: 10px;
+        width: 10px;
+        right: 200px;
+        top: 65%;
+        background: rgba(0, 0, 0, 0.05);
+    }
+    > div > span::before {
+        border-radius: 7px;
+        transition: 0.5s;
+        content: "";
+        opacity: 0;
+        position: absolute;
+        height: 10px;
+        width: 10px;
+        left: 200px;
+        top: 35%;
+        background: rgba(0, 0, 0, 0.05);
     }
     > div > div {
+        backdrop-filter: blur(10px);
         transition: 0.5s;
         border-radius: 30px;
         padding: 15px;
@@ -583,18 +722,312 @@ img.right {
             padding-top: 50px;
             padding-bottom: 50px;
         }
+        > span::after {
+            z-index: 2;
+            animation-name: cubes2-card1;
+            animation-duration: 5s;
+            animation-delay: 0.5s;
+            animation-iteration-count: infinite;
+            transition: 0.5s;
+            opacity: 1;
+            right: 70px;
+            height: 70px;
+            width: 70px;
+            top: calc(65% + 120px);
+        }
+        > span::before {
+            z-index: 2;
+            animation-name: cubes1-card1;
+            animation-duration: 5s;
+            animation-delay: 0.5s;
+            animation-iteration-count: infinite;
+            transition: 0.5s;
+            opacity: 1;
+            width: 70px;
+            height: 70px;
+            left: 70px;
+            top: calc(35% - 200px);
+        }
+    }
+}
+#cards2 {
+    pointer-events: none;
+    counter-reset: counter;
+    justify-content: space-around;
+    margin-top: 20px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    &:hover > div:not(:hover) {
+        filter: blur(5px);
+    }
+    & > div {
+        pointer-events: auto;
+        transition: 0.5s;
+        overflow: hidden;
+        background: #e0f0ff;
+        border-radius: 15px;
+        margin: 40px 10px 10px 10px;
+        display: flex;
+        flex-direction: column;
+        padding-top: 240px;
+        justify-content: start;
+        position: relative;
+        height: 320px;
+        width: 360px;
+        &:hover {
+            transform: scale(1.05, 1.05);
+            transition: 0.5s;
+        }
+    }
+    & > div > div {
+        transition: 0.5s;
+        padding: 15px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+    }
+    & > div::before {
+        counter-increment: counter;
+        position: absolute;
+        right: -20px;
+        top: -200px;
+        content: counter(counter);
+        text-align: center;
+        display: grid;
+        align-items: end;
+        font-size: 100px;
+        background: #36a7ff;
+        width: 400px;
+        height: 360px;
+        border-radius: 50%;
+        padding-bottom: 20px;
+    }
+}
+#cards3 {
+    pointer-events: none;
+    counter-set: counter 3;
+    justify-content: space-around;
+    margin-top: 20px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    &:hover > div:not(:hover) {
+        opacity: 0.2;
+    }
+    & > div {
+        overflow: hidden;
+        pointer-events: auto;
+        transition: 0.5s;
+        background: #c0d0ff;
+        margin: 40px 10px 10px 10px;
+        border-radius: 3px;
+        display: flex;
+        flex-direction: column;
+        padding-top: 100px;
+        justify-content: start;
+        position: relative;
+        height: 320px;
+        width: 360px;
+        &:hover {
+            transform: scale(1.05, 1.05);
+            transition: 0.5s;
+        }
+        & > span {
+            top:0;
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            z-index: 10;
+        }
+        & > span:nth-child(1)::before {
+            border-bottom-right-radius: 3px;
+            border-top-right-radius: 3px;
+            top: 0;
+            left: -200px;
+            --move: 0deg;
+            position: absolute;
+            content: "";
+            background: linear-gradient(-90deg, firebrick, pink);
+            width: 200px;
+            height: 2px;
+        }
+        &:hover > span:nth-child(1)::before {
+            animation: border-move infinite 2s;
+        }
+        & > span:nth-child(1)::after {
+            border-bottom-right-radius: 3px;
+            border-top-right-radius: 3px;
+            top: -200px;
+            left: 357px;
+            --move: 90deg;
+            position: absolute;
+            content: "";
+            background: linear-gradient(-90deg, firebrick, pink);
+            width: 2px;
+            height: 200px;
+        }
+        &:hover > span:nth-child(1)::after {
+            animation: border-move infinite 2s 0.7s linear;
+        }
+        & > span:nth-child(2)::before {
+            border-bottom-right-radius: 3px;
+            border-top-right-radius: 3px;
+            top: 417px;
+            left: 360px;
+            --move: 180deg;
+            position: absolute;
+            content: "";
+            background: linear-gradient(90deg, firebrick, pink);
+            width: 200px;
+            height: 2px;
+        }
+        &:hover > span:nth-child(2)::before {
+            animation: border-move infinite 2s;
+        }
+        & > span:nth-child(2)::after {
+            border-bottom-right-radius: 3px;
+            border-top-right-radius: 3px;
+            top: 417px;
+            left: 0;
+            --move: -90deg;
+            position: absolute;
+            content: "";
+            background: linear-gradient(-90deg, firebrick, pink);
+            width: 2px;
+            height: 200px;
+        }
+        &:hover > span:nth-child(2)::after {
+            animation: border-move infinite 2s 0.7s linear;
+        }
+    }
+    & > div > div {
+        transition: 0.5s;
+        padding: 15px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+    }
+    & > div::after {
+        counter-increment: counter;
+        position: absolute;
+        right: 0;
+        top: 0;
+        content: counter(counter);
+        text-align: center;
+        display: grid;
+        align-items: start;
+        font-size: 100px;
+        background: #a0b0ff;
+        width: 30%;
+        height: 100%;
+    }
+}
+@keyframes border-move {
+    from {
+        transform: translate(0, 0);
+    }
+    to {
+        transform: translate(calc(580px * cos(var(--move))), calc(680px * sin(var(--move))));
+    }
+}
+@keyframes cubes2-card1 {
+    from {
+        top: calc(65% + 120px);
+        right: 70px;
+    }
+    33% {
+        right: 140px;
+        top: calc(65% + 80px);
+    }
+    66% {
+        right: 200px;
+        top: calc(65% + 120px);
+    }
+    to {
+        top: calc(65% + 120px);
+        right: 70px;
     }
 }
 
-
+@keyframes cubes1-card1 {
+    from {
+         top: calc(35% - 200px);
+         left: 70px;
+    }
+    33% {
+        left: 140px;
+        top: calc(35% - 160px);
+    }
+    66% {
+        left: 200px;
+        top: calc(35% - 200px);
+    }
+    to {
+        top: calc(35% - 200px);
+        left: 70px;
+    }
+}
+#icons {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+}
+.icon {
+    transition: 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: black;
+    cursor: url(images/favicon.png), auto;
+    overflow: hidden;
+    border-radius: 50%;
+    padding: 0;
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+    position: relative;
+}
+img.none {
+    z-index: 3;
+    padding: 0;
+    margin: 0;
+}
+.icon::before {
+    transition: 1s;
+    top: 0;
+    border-radius: 50%;
+    opacity: 1;
+    content: "";
+    position: absolute;
+    z-index: 2;
+    background: linear-gradient(45deg, red, blue);
+    height: 0;
+    width: 50px;
+}
+.icon:hover {
+    transition: 0.5s;
+    transform: scale(1.2, 1.2);
+}
+.icon:hover::before {
+    border-radius: 50%;
+    transition: 1s;
+    height: 50px;
+}
 footer {
+    display: flex;
+    padding: 15px;
     font-family: 'Roboto', sans-serif;
     margin-top: 20px;
-    padding-left: 10px;
     border-color:lavenderblush;
     border-style: solid;
     background: lightgrey;
-    height: 60px;
+    height: auto;
+    & address {
+        width: 400px;
+    }
 }
 
 
@@ -736,8 +1169,7 @@ footer {
         padding: 0;
         height: auto;
         margin-top: 0;
-        border-style: solid solid solid solid;
-        border-top-width: 1px;
+        box-shadow: 0 0 5px darkgrey;
         border-radius: 0 0 5px 5px;
         text-align: center;
         background: #ffeec7;
