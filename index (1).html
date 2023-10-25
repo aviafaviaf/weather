@@ -37,76 +37,107 @@
     </ol>
 </div>
 <main>
-    <div id="auth">
-        <span id="cubes1"></span>
-        <span id="cubes2"></span>
-        <form id="registration" action="" method="get" class="auth">
-                <h2 id="reg">Регистрация</h2>
-                <div class="flex">
+    <div id="grid">
+        <div id="auth">
+            <span id="cubes1"></span>
+            <span id="cubes2"></span>
+            <form id="registration" action="" method="get" class="auth">
+                    <h2 id="reg">Регистрация</h2>
+                    <div class="flex">
+                        <div>
+                            <p>
+                               <label for="email">Почта</label>
+                               <input type="email" name="email" id="email" placeholder="Почта" required>
+                            </p>
+                            <p>
+                                <label for="password">Пароль</label>
+                                <input type="password" name="password" id="password" placeholder="******" required>
+                            </p>
+                        </div>
+                        <div>
+                            <p>
+                                <label for="tel">Телефон</label>
+                                <input type="tel" pattern="[+][7][0-9]{10}" name="tel" id="tel" placeholder="Телефон">
+                            </p>
+                            <p>
+                                <label for="name">Имя</label>
+                                <input type="text" name="name" id="name" placeholder="Имя">
+                            </p>
+                        </div>
+                        <div id="select-city">
+                            <label for="city">Город</label><br>
+                            <select name="select" id="city" size="2" multiple required>
+                                <option value="moscow">Москва</option>
+                                <option value="spb">Санкт-Петербург</option>
+                            </select>
+                        </div>
+                    </div>
+                    <fieldset>
+                        <legend>Уведомления</legend>
+                        <div>
+                            <input type="radio" id="type1" name="drone" value="huey" checked />
+                            <label for="type1">Все уведомлления</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="type2" name="drone" value="dewey" />
+                            <label for="type2">Уведомления только о плохой погоде</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="type3" name="drone" value="louie" />
+                            <label for="type3">Я не хочу получать уведомления</label>
+                        </div>
+                    </fieldset>
+                    <div>
+                        <input type="submit" value="Зарегистрироваться" name="submit" id="submit" required>
+                    </div>
+                </form>
+            <form id="login" action="" method="get" class="auth">
+                    <h2>Войти</h2>
                     <div>
                         <p>
-                           <label for="email">Почта</label>
-                           <input type="email" name="email" id="email" placeholder="Почта" required>
+                            <label for="em">Почта</label>
+                            <input type="email" name="email" id="em" placeholder="Почта" required>
                         </p>
                         <p>
-                            <label for="password">Пароль</label>
-                            <input type="password" name="password" id="password" placeholder="******" required>
+                            <label for="pass">Пароль</label>
+                            <input type="password" name="password" id="pass" placeholder="******" required>
                         </p>
+                        <input type="submit" value="Войти" name="submit" id="sub" required>
                     </div>
-                    <div>
-                        <p>
-                            <label for="tel">Телефон</label>
-                            <input type="tel" pattern="[+][7][0-9]{10}" name="tel" id="tel" placeholder="Телефон">
-                        </p>
-                        <p>
-                            <label for="name">Имя</label>
-                            <input type="text" name="name" id="name" placeholder="Имя">
-                        </p>
-                    </div>
-                    <div id="select-city">
-                        <label for="city">Город</label><br>
-                        <select name="select" id="city" size="2" multiple required>
-                            <option value="moscow">Москва</option>
-                            <option value="spb">Санкт-Петербург</option>
-                        </select>
-                    </div>
-                </div>
-                <fieldset>
-                    <legend>Уведомления</legend>
-                    <div>
-                        <input type="radio" id="type1" name="drone" value="huey" checked />
-                        <label for="type1">Все уведомлления</label>
-                    </div>
-                    <div>
-                        <input type="radio" id="type2" name="drone" value="dewey" />
-                        <label for="type2">Уведомления только о плохой погоде</label>
-                    </div>
-                    <div>
-                        <input type="radio" id="type3" name="drone" value="louie" />
-                        <label for="type3">Я не хочу получать уведомления</label>
-                    </div>
-                </fieldset>
+                </form>
+        </div>
+        <section id="cards">
+            <div id="cards2">
                 <div>
-                    <input type="submit" value="Зарегистрироваться" name="submit" id="submit" required>
+                    <div>
+                        <h3>Как образуется дождь?</h3>
+                        <p>
+                            Обычно для того, чтобы пошел дождь, необходимо движение теплых воздушных масс навстречу холодным или наоборот. Такие массы содержат облака и влагу, и когда эти теплые массы охлаждаются холодными массами, образуются капельки воды, которые выпадают в виде дождя.
+                        </p>
+                        <button class="btn-one"><span>Подробнее</span></button>
+                    </div>
                 </div>
-            </form>
-        <form id="login" action="" method="get" class="auth">
-                <h2>Войти</h2>
                 <div>
-                    <p>
-                        <label for="em">Почта</label>
-                        <input type="email" name="email" id="em" placeholder="Почта" required>
-                    </p>
-                    <p>
-                        <label for="pass">Пароль</label>
-                        <input type="password" name="password" id="pass" placeholder="******" required>
-                    </p>
-                    <input type="submit" value="Войти" name="submit" id="sub" required>
+                    <div>
+                        <h3>Что такое молния?</h3>
+                        <p>
+                            Молния — электрический искровой разряд в атмосфере, происходит во время грозы, проявляющийся яркой вспышкой света и сопровождающим её громом.
+                        </p>
+                        <button class="btn-one"><span>Подробнее</span></button>
+                    </div>
                 </div>
-            </form>
-    </div>
-    <div class="f">
-        <article id="forecast">
+                <div>
+                    <div>
+                        <h3>Откуда берётся ветер?</h3>
+                        <p>
+                            Ветер возникает в результате неравномерного распределения атмосферного давления, он направлен от зоны высокого давления к зоне низкого давления.
+                        </p>
+                        <button class="btn-one"><span>Подробнее</span></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="forecast">
             <p id="3" class="ind"></p>
             <h2>Прогноз погоды</h2>
             <img class="center" src="https://sun9-53.userapi.com/impg/3Mg2vDRlu3nmULnc6FRrcOHN84AUOBG8AKK_9Q/xTAzz-JixB4.jpg?size=900x400&quality=95&sign=ddc42a868fb25a3ca064cffabc8f4461&c_uniq_tag=Q02kTAjkG8eOEFLvdvwnjQoj-ScnfSSSX1FeqxIRV2k&type=album" alt="Прогноз погоды" width="400" height="200">
@@ -117,16 +148,16 @@
                 <area alt="circle" coords="303, 98, 98" shape="circle" href="https://weather.rambler.ru/v-moskve/tomorrow/"/>
                 <area alt="poly" coords="410, 102, 475, 7, 585, 6, 585, 195" shape="poly" href="https://weather.rambler.ru/v-moskve/30-days/?updated"/>
             </map>
-        </article>
-        <article id="article_map">
+        </section>
+        <section id="article_map">
             <h2 id="map">Карта погоды</h2>
             <iframe class="center" width="650px" height="650" src="https://embed.windy.com/embed2.html?lat=55.735&lon=37.738&detailLat=55.735&detailLon=37.738&width=650&height=450&zoom=8&level=surface&overlay=temp&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1"></iframe>
-        </article>
-        <article id="video_article">
+        </section>
+        <section id="video_article">
             <h2 id="video">Природные явления</h2>
             <iframe class="center" width="893" height="502" src="https://www.youtube.com/embed/Ha0DaF-D9Xk" title="7 САМЫХ РЕДКИХ ПРИРОДНЫХ ЯВЛЕНИЙ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        </article>
-        <article id="list">
+        </section>
+        <section id="list">
             <h2>Список месяцев</h2>
             <ol type="I" start="9">
                 <li>Сентябрь</li>
@@ -148,7 +179,7 @@
                 <li>Июль</li>
                 <li>Август</li>
             </ol>
-        </article>
+        </section>
     </div>
     <section>
         <p id="1" class="ind"></p>
@@ -265,35 +296,6 @@
         </div>
         <div>
             <span></span>
-            <div>
-                <h3>Откуда берётся ветер?</h3>
-                <p>
-                    Ветер возникает в результате неравномерного распределения атмосферного давления, он направлен от зоны высокого давления к зоне низкого давления.
-                </p>
-                <button class="btn-one"><span>Подробнее</span></button>
-            </div>
-        </div>
-    </div>
-    <div id="cards2">
-        <div>
-            <div>
-                <h3>Как образуется дождь?</h3>
-                <p>
-                    Обычно для того, чтобы пошел дождь, необходимо движение теплых воздушных масс навстречу холодным или наоборот. Такие массы содержат облака и влагу, и когда эти теплые массы охлаждаются холодными массами, образуются капельки воды, которые выпадают в виде дождя.
-                </p>
-                <button class="btn-one"><span>Подробнее</span></button>
-            </div>
-        </div>
-        <div>
-            <div>
-                <h3>Что такое молния?</h3>
-                <p>
-                    Молния — электрический искровой разряд в атмосфере, происходит во время грозы, проявляющийся яркой вспышкой света и сопровождающим её громом.
-                </p>
-                <button class="btn-one"><span>Подробнее</span></button>
-            </div>
-        </div>
-        <div>
             <div>
                 <h3>Откуда берётся ветер?</h3>
                 <p>

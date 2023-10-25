@@ -1087,58 +1087,6 @@ footer {
     ul.horizontal-list li:hover {
         margin-bottom: 20px;
     }
-    form {
-        bottom: 0;
-        width: 100%;
-        overflow: hidden;
-        background: #d7e7f7;
-        padding: 10px;
-        border-style: solid;
-        border-radius: 5px;
-    }
-
-    iframe.center {
-        width: 100%;
-        margin: 0;
-    }
-
-    #list {
-        width: 100%;
-    }
-
-    #video_article {
-        width: 100%;
-    }
-
-    #forecast {
-        width: 100%;
-    }
-
-    #article_map {
-        width: 100%;
-    }
-
-    div.flex {
-        flex-direction: column;
-    }
-
-    div.f {
-        padding: 3px;
-        margin-right: 0;
-        display: flex;
-        width: auto;
-        flex-flow: row wrap;
-        align-content: center;
-        justify-content: center;
-    }
-
-    div.f > article {
-        margin: 20px 0 20px 0;
-        display: block;
-        width: auto;
-        padding: 20px 50px 20px 50px;
-    }
-
     #fixedLogo {
         left: 15px;
     }
@@ -1159,12 +1107,12 @@ footer {
     }
 
     #nav {
+        transition: 0.5s;
         overflow: visible;
-        display: none;
         margin-right: 0;
         position: sticky;
         top: -5px;
-        opacity: 0.95;
+        opacity: 0;
         right: 0;
         padding: 0;
         height: auto;
@@ -1188,16 +1136,7 @@ footer {
         transition: ease-in .1s;
     }
     #burger:checked + label + #nav {
-        display: block;
-        animation: burger .5s;
-    }
-}
-
-@keyframes burger {
-    0%{
-        opacity: 0;
-    }
-    100%{
         opacity: 0.95;
+        transition: ease-in .5s;
     }
 }
