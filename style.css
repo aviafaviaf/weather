@@ -13,9 +13,7 @@ h1 {
 h3 {
     text-indent: 30px;
 }
-p {
-    margin: 10px;
-}
+
 div.flex {
     width: auto;
     flex-flow: row wrap;
@@ -30,10 +28,10 @@ div.f {
     gap: 1px 1px;
 }
 #grid {
-    margin: 10px;
+    margin: 30px 10px 10px 10px;
     display: grid;
     grid-template-columns: 25% auto 25%;
-    grid-template-rows: 500px 700px 700px;
+    grid-template-rows: 600px 700px 700px;
     grid-auto-rows: auto;
     gap: 20px 20px;
 }
@@ -167,6 +165,12 @@ form.auth {
 #grid-reg {
     display: grid;
     grid-template-columns: 50% 50%;
+    & > div {
+        margin: 10px;
+    }
+}
+#reg-question-div {
+    margin-left: 10px;
 }
 #city-select {
     grid-column: span 2;
@@ -592,6 +596,10 @@ div.img_gallery {
         width: 100%;
         height: 100%;
     }
+    &:hover button.like {
+        opacity: 1;
+        transition: 0.5s;
+    }
 }
 img.gallery {
     border-radius: 5px;
@@ -612,6 +620,20 @@ img.gallery {
 #hail {
     grid-column: span 2;
 }
+button.like {
+    border-radius: 10px;
+    background: ghostwhite;
+    transition: 0.3s;
+    z-index: 1;
+    opacity: 0;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 30px;
+    bottom: 20px;
+}
+
+
 
 /* cards */
 #cards1 {

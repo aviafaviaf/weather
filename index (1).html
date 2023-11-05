@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Прогноз погоды</title>
+    <script src="https://kit.fontawesome.com/5e417c59b3.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/5e417c59b3.js" crossorigin="anonymous"></script>
+    <script defer src="script.js"></script>
+
 </head>
 <body>
 <header>
@@ -39,38 +41,35 @@
 <main>
     <div id="grid">
         <div class="in-grid" id="auth">
+            <form method="dialog" id="reg_question_form">
+                <label id="reg-question-label" for="reg-question">Желаете зарегистрироваться на сайте?</label><br>
+                <input type="text" name="reg-question" id="reg-question" placeholder="Да" >
+                <input type="submit">
+            </form>
             <!--
             <span id="cubes1"></span>
             <span id="cubes2"></span>
             -->
             <form id="registration" action="" method="get" class="auth">
-                    <h2 id="reg">Регистрация</h2>
-                    <div id="grid-reg">
-                        <div>
-                            <p>
-                               <label for="email">Почта</label><br>
-                               <input class="expandable" type="email" name="email" id="email" placeholder="Почта" required>
-                            </p>
-                        </div>
-                        <div>
-                            <p>
-                                <label for="password">Пароль</label><br>
-                                <input class="expandable" type="password" name="password" id="password" placeholder="******" required>
-                            </p>
-                        </div>
-                        <div>
-                            <p>
-                                <label for="tel">Телефон</label><br>
-                                <input class="expandable" type="tel" pattern="[+][7][0-9]{10}" name="tel" id="tel" placeholder="Телефон">
-                            </p>
-                        </div>
-                        <div>
-                            <p>
-                                <label for="name">Имя</label><br>
-                                <input class="expandable" type="text" name="name" id="name" placeholder="Имя">
-                            </p>
-                        </div>
-                        <div id="reg-notifications">
+                <h2 id="reg">Регистрация</h2>
+                <div id="grid-reg">
+                    <div>
+                        <label for="email">Почта</label><br>
+                        <input type="email" name="email" id="email" placeholder="Почта">
+                    </div>
+                    <div>
+                        <label for="password">Пароль</label><br>
+                        <input type="password" name="password" id="password" placeholder="******">
+                    </div>
+                    <div>
+                        <label for="tel">Телефон</label><br>
+                        <input type="tel" pattern="[+][7][0-9]{10}" name="tel" id="tel" placeholder="Телефон">
+                    </div>
+                    <div>
+                        <label for="name">Имя</label><br>
+                        <input type="text" name="name" id="name" placeholder="Имя">
+                    </div>
+                    <div id="reg-notifications">
                             <fieldset>
                                 <legend>Уведомления</legend>
                                 <div>
@@ -87,24 +86,24 @@
                                 </div>
                             </fieldset>
                         </div>
-                        <div id="city-select">
-                            <label for="city">Город</label><br>
-                            <select name="select" id="city" size="2" multiple required>
-                                <option value="moscow">Москва</option>
-                                <option value="spb">Санкт-Петербург</option>
-                            </select>
-                        </div>
+                    <div id="city-select">
+                        <label for="city">Город</label><br>
+                        <select name="select" id="city" size="2">
+                            <option value="moscow">Москва</option>
+                            <option value="spb">Санкт-Петербург</option>
+                        </select>
                     </div>
-                    <div>
-                        <input type="submit" value="Зарегистрироваться" name="submit" id="submit" required>
-                    </div>
-                </form>
+                </div>
+                <div>
+                    <input type="submit" value="Зарегистрироваться" name="submit" id="submit" required>
+                </div>
+            </form>
             <form id="login" action="" method="get" class="auth">
                 <h2>Войти</h2>
                 <label for="em">Почта</label>
-                <input class="expandable" type="email" name="email" id="em" placeholder="Почта" required>
+                <input type="email" name="email" id="em" placeholder="Почта" required>
                 <label for="pass">Пароль</label>
-                <input class="expandable" type="password" name="password" id="pass" placeholder="******" required>
+                <input type="password" name="password" id="pass" placeholder="******" required>
                 <input type="submit" value="Войти" name="submit" id="sub" required>
             </form>
         </div>
@@ -266,34 +265,42 @@
             <h2>Галерея</h2>
             <div id="gallery">
                 <div class="img_gallery" id="sea-lightning">
+                    <button class="like">❤</button>
                     <span>Молния над морем</span>
                     <img class="gallery" src="images/sea-lightning.png" alt="Прогноз погоды">
                 </div>
                 <div class="img_gallery">
+                    <button class="like">❤</button>
                     <span>Снежинка</span>
                     <img class="gallery" src="https://gas-kvas.com/uploads/posts/2023-02/1675455067_gas-kvas-com-p-fonovie-risunki-sneg-2.jpg" alt="Прогноз погоды">
                 </div>
                 <div class="img_gallery"  id="hail">
+                    <button class="like">❤</button>
                     <span>Град</span>
                     <img class="gallery" src="https://phonoteka.org/uploads/posts/2021-07/1625675695_49-phonoteka-org-p-grad-art-krasivo-52.jpg" alt="Прогноз погоды">
                 </div>
                 <div class="img_gallery">
+                    <button class="like">❤</button>
                     <span>Град</span>
                     <img class="gallery" src="https://stolicaonego.ru/images/pics/19/cYZpvoWUPbg.jpg" alt="Прогноз погоды">
                 </div>
                 <div class="img_gallery" id="snow">
+                    <button class="like">❤</button>
                     <span>Снег в лесу</span>
                     <img class="gallery" src="https://fonewalls.com/wp-content/uploads/2160x3840-Background-HD-Wallpaper-650-768x1365.jpg" alt="Прогноз погоды">
                 </div>
                 <div class="img_gallery">
+                    <button class="like">❤</button>
                     <span>Зонт</span>
                     <img class="gallery" src="https://i.pinimg.com/736x/7b/bb/24/7bbb249e223bbbccec1f948cc2d3ce96.jpg" alt="Прогноз погоды">
                 </div>
                 <div class="img_gallery" id="thunderstorm">
+                    <button class="like">❤</button>
                     <span>Гроза</span>
                     <img class="gallery" src="https://static.mk.ru/upload/entities/2021/06/14/07/articles/facebookPicture/44/56/2a/d8/d41aa129d36ecf5f701a7f16e12a510e.jpg" alt="Прогноз погоды">
                 </div>
                 <div class="img_gallery">
+                    <button class="like">❤</button>
                     <span>Дождь</span>
                     <img class="gallery" src="https://images.wallpaperscraft.ru/image/single/kapli_dozhd_vodopad_80973_800x1280.jpg" alt="Прогноз погоды">
                 </div>
