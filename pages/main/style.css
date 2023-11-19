@@ -10,9 +10,6 @@ h2 {
 h1 {
     text-align: center;
 }
-h3 {
-    text-indent: 30px;
-}
 
 div.flex {
     width: auto;
@@ -1091,7 +1088,7 @@ footer {
     align-items: center;
     justify-content: center;
     background: black;
-    cursor: url(images/favicon.png), auto;
+    cursor: url(../../images/favicon.png), auto;
     overflow: hidden;
     border-radius: 50%;
     padding: 0;
