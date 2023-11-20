@@ -151,3 +151,103 @@ function truncate(str, maxlength) {
 for (let card of document.querySelectorAll("#cards > div > div > div > p")) {
     card.textContent = truncate(card.textContent, 140);
 }
+
+function Product(name, price, productElement, buttonAdd, buttonDelete) {
+    this.name = name;
+    this.price = price;
+    this.productElement = productElement;
+    this.buttonAdd = buttonAdd;
+    this.buttonDelete = buttonDelete;
+    this.count = 1;
+    this.addCount = function () {
+        this.count += 1;
+        this.productElement.firstChild.textContent = "x" + this.count + this.productElement.firstChild.textContent.slice(this.productElement.textContent.indexOf(" "), this.productElement.textContent.indexOf("|") + 2) + this.price * this.count + "₽";
+        updateCart(cart);
+    }
+}
+
+let cart = [];
+for (let button of document.getElementsByClassName("shop")) {
+    button.onclick = function () {
+        let buttonAdd = document.createElement("button");
+        buttonAdd.textContent = "+";
+        buttonAdd.className = "addProduct";
+        let buttonDelete = document.createElement("button");
+        buttonAdd.style.margin = "0 10px 0 10px";
+        buttonDelete.textContent = "🗑️";
+        buttonDelete.className = "deleteProduct";
+        buttonDelete.onclick = function () {
+            deleteProduct(buttonDelete);
+        };
+        let text = document.createElement("span");
+        text.textContent = "x1 " + button.textContent;
+        let productElement = document.createElement("div");
+        productElement.appendChild(text);
+        productElement.appendChild(buttonAdd);
+        productElement.appendChild(buttonDelete);
+        let product = new Product( button.textContent.slice(0, button.textContent.indexOf("|") - 1), Number(button.textContent.slice(button.textContent.indexOf("|") + 2, button.textContent.indexOf("₽") - 1)), productElement, buttonAdd, buttonDelete )
+        buttonAdd.onclick = function () {
+            product.addCount();
+        }
+        cart.push(product);
+        updateCart(cart);
+    }
+}
+
+document.getElementById("clear-cart").onclick = function() {
+    cart = [];
+    updateCart(cart);
+}
+function updateCart(arr) {
+    let cartElement = document.getElementById("cart");
+    let price = 0;
+    cartElement.innerHTML = '';
+    for (let product of arr) {
+        cartElement.appendChild(product.productElement);
+        price += product.price * product.count;
+    }
+    document.getElementById("price").textContent = document.getElementById("price").textContent.slice(0, 6) + price + " ₽";
+}
+
+function deleteProduct(buttonDelete) {
+    for (let i = 0; i < cart.length; i++) {
+        if (cart[i].buttonDelete === buttonDelete) {
+            cart.splice(i, 1);
+            updateCart(cart);
+            break;
+        }
+    }
+}
+
+function filter(cart, botPrice, topPrice) {
+    let newCart = [];
+    if (!botPrice)
+        botPrice = 0;
+    if (!topPrice)
+        topPrice = 100000;
+    for (let product of cart) {
+        if (!(product.price < botPrice || product.price >= topPrice))
+            newCart.push(product);
+    }
+    return newCart;
+}
+
+document.getElementById("price-filter").onsubmit = function () {
+    let filteredCart = filter(cart, document.getElementById("bottom-price").value, document.getElementById("top-price").value);
+    updateCart(filteredCart);
+}
+
+document.getElementById("sort-ascending").onclick = function () {
+    cart.sort(function(a, b) {
+        return a.price - b.price;
+    });
+    updateCart(cart);
+}
+
+document.getElementById("sort-descending").onclick = function () {
+    cart.sort(function(a, b) {
+        return a.price - b.price;
+    });
+    cart.reverse();
+    updateCart(cart);
+}

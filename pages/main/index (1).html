@@ -4,31 +4,17 @@
     <meta charset="UTF-8">
     <title>Прогноз погоды</title>
     <script src="https://kit.fontawesome.com/5e417c59b3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../globalStyle.css">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="../../images/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <script defer src="script.js"></script>
+    <script defer src="../../header.js"></script>
+    <script defer src="../../footer.js"></script>
 </head>
 <body>
-<header>
-    <h1 id="Weather">Погода</h1>
-    <img id="logo" src="../../images/logo.png" alt="Погода" width="200" height="200">
-    <img src="../../images/logo.png" alt="Погода" width="40" height="40" id="fixedLogo">
-</header>
-<input type="checkbox" id="burger">
-<label for="burger"></label>
-<div id="nav">
-    <nav>
-        <ul class="horizontal-list">
-            <li><a href="#reg"><span>Регистрация</span></a></li>
-            <li><a href="#1"><span>Что такое</span></a></li>
-            <li><a href="#2"><span>Климат России</span></a></li>
-            <li><a href="#map"><span>Карта погоды</span></a></li>
-        </ul>
-    </nav>
-</div>
 <div class="notifications">
     <ol class="notifications">
         <li><a>На выходных будет хорошая погода</a></li>
@@ -224,7 +210,7 @@
                 На юге отметка термометра зимой редко опускается ниже 0˚C.
             </p>
             <article>
-                <img src="../../images/cfd-1.png" class="right" alt="Карта центральной России" height="200" width="200">
+                <img src="images/cfd-1.png" class="right" alt="Карта центральной России" height="200" width="200">
                 <h3>Центральная Россия</h3>
                 <p>
                     Зима начинается с конца ноября и длится до середины марта. В зависимости от региона январская температура колеблется от -12˚C до -25˚C. Выпадает много снега, который тает только с наступлением оттепелей. Экстремально низкие температуры приходятся на январь. Февраль запоминается ветрами, часто ураганными. Сильные снегопады в последние несколько лет приходятся на начало марта.
@@ -238,7 +224,7 @@
                 <p>
                     Один из самых крупных и самых холодных регионов России.
                     Зима малоснежная, но очень холодная. На отдаленных территориях столбик термометра показывает более -40˚C.
-                    <img src="../../images/sibir-na-karte-rossii.png" class="left" alt="Карта Сибири" height="200" width="300">Снегопады и ветра случаются нечасто. Снег тает в апреле, а в регионе с вечной мерзлотой тепло приходит только в июне. Летние отметки составляют +20˚С, осадков мало.
+                    <img src="images/sibir-na-karte-rossii.png" class="left" alt="Карта Сибири" height="200" width="300">Снегопады и ветра случаются нечасто. Снег тает в апреле, а в регионе с вечной мерзлотой тепло приходит только в июне. Летние отметки составляют +20˚С, осадков мало.
                     В сентябре начинается календарная осень, воздух быстро остывает. К октябрю дожди сменяются снегом.
                 </p>
 
@@ -249,13 +235,13 @@
                     Климат отличается разнообразием, он колеблется от континентального до муссонного.
                     Примерная зимняя температура составляет -24˚C, выпадает много снега.
                     На весеннее время приходится мало осадков. Лето жаркое, с повышенной влажностью, август считается периодом затяжных дождей.
-                    <img src="../../images/dv.png" alt="Карта Дальнего востока" class="right" height="200" width="300"> На Курилах господствуют туманы, в Магадане начинаются белые ночи. Начало осени теплое, но дождливое.
+                    <img src="images/dv.png" alt="Карта Дальнего востока" class="right" height="200" width="300"> На Курилах господствуют туманы, в Магадане начинаются белые ночи. Начало осени теплое, но дождливое.
                     Отметки на термометре в середине октября показывают -14˚C. Через месяц наступают зимние морозы.
                 </p>
 
             </article>
             <article>
-                <img src="../../images/krasnodar-map.png" alt="Карта Дальнего востока" class="right" height="200" width="300">
+                <img src="images/krasnodar-map.png" alt="Карта Дальнего востока" class="right" height="200" width="300">
                 <h3>Краснодарский край</h3>
                 <p>
                     Минимальная январская температура составляет 0˚C, почва не промерзает.
@@ -265,13 +251,34 @@
                 </p>
             </article>
         </div>
+        <div class="in-grid max-width">
+            <h2>Товары</h2>
+            <div id="products">
+                <div><img src="https://giftprime.ru/wp-content/uploads/2016/03/5258.30_4_jpg_1000x1000.jpg" alt="Зонт"><button class="shop btn-two">Зонт | 706 ₽</button></div>
+                <div><img src="https://cdn1.ozone.ru/s3/multimedia-7/6270735487.jpg" alt="Дождевик"><button class="shop btn-two">Дождевик | 458 ₽</button></div>
+                <div><img src="https://www.clipartbest.com/cliparts/McL/ME4/McLME4r7i.jpg" alt="Очки"><button class="shop btn-two">Солнцезащитные очки | 220 ₽</button></div>
+            </div>
+            <h2>Корзина</h2>
+            <form id="price-filter" method="dialog">
+                <label for="bottom-price">Цена от </label>
+                <input id="bottom-price" type="text">
+                <label for="top-price">до </label>
+                <input id="top-price" type="text">
+                <input type="submit" value="Применить">
+            </form>
+            <div id="cart"></div>
+            <p id="price">Цена: 0 ₽</p>
+            <button class="btn-one" id="sort-ascending">Отсортировать по возрастанию цены</button>
+            <button class="btn-one" id="sort-descending">Отсортировать по убыванию цены</button>
+            <button class="btn-one" id="clear-cart">Очистить корзину</button>
+        </div>
         <div id="div_gallery" class="in-grid max-width">
             <h2>Галерея</h2>
             <div id="gallery">
                 <div class="img_gallery" id="sea-lightning">
                     <button class="like">❤</button>
                     <span>Молния над морем</span>
-                    <img class="gallery" src="../../images/sea-lightning.png" alt="Прогноз погоды">
+                    <img class="gallery" src="images/sea-lightning.png" alt="Прогноз погоды">
                 </div>
                 <div class="img_gallery">
                     <button class="like">❤</button>
@@ -394,43 +401,5 @@
     -->
 
 </main>
-<footer>
-    <address>
-        <h3>Контакты</h3>
-        <p>
-            Телефон:
-            <a href="tel: +79398523931"> +7(939)852-39-31</a><br>
-            Почта:
-            <a href="mailto: vlad2004ik04@mail.ru">vlad2004ik04@mail.ru</a>
-        </p>
-    </address>
-    <div id="social_networks">
-        <h3>Соцсети</h3>
-        <div id="icons">
-            <div class="icon">
-                <i class="fa-brands fa-vk fa-xl" style="color: #ffffff; z-index: 3;"></i>
-            </div>
-            <div class="icon">
-                <i class="fa-brands fa-youtube fa-xl" style="color: #ffffff; z-index: 3;"></i>
-            </div>
-            <div class="icon">
-                <i class="fa-brands fa-telegram fa-xl" style="color: #ffffff; z-index: 3;"></i>
-            </div>
-        </div>
-    </div>
-    <div id="footer_nav">
-        <h3>Навигация</h3>
-        <ul>
-            <li><a href="#reg">Регистрация</a></li>
-            <li><a href="#1">Что такое прогноз погоды</a></li>
-            <li><a href="#2">Климат России</a></li>
-            <li><a href="#map">Карта погоды</a></li>
-        </ul>
-    </div>
-    <div id="about_us">
-        <h3>О нас</h3>
-        <p>С помощью этого сайта пользователи могут узнать о температуре, осадках, скорости ветра и других погодных условиях на определенную дату и время в течение месяца.</p>
-    </div>
-</footer>
 </body>
 </html>
