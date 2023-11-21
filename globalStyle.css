@@ -6,11 +6,17 @@ body {
 }
 h2 {
     text-align: center;
+    font-size: 25px;
 }
 h1 {
     text-align: center;
+    font-size: 30px;
 }
-
+#Weather {
+    margin:3px;
+    color: blueviolet;
+    font-size: 72px;
+}
 #burger, [for=burger] {
     display: none;
 }

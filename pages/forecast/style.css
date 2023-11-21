@@ -1,17 +1,20 @@
 #grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: auto 300px;
-    grid-auto-rows: 300px;
+    grid-template-rows: auto 210px;
+    grid-auto-rows: 205px;
     gap: 30px;
     & > div {
         width: 100%;
         height: 100%;
         overflow: hidden;
-        background: #d7e7f7;
+        background: #d9e9f9;
         box-shadow: 0 0 8px darkgrey;
         border-radius: 5px;
     }
+}
+section {
+    background: #ddedfd;
 }
 #current-weather {
     grid-column: span 4;

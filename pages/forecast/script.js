@@ -113,20 +113,129 @@ function transformDate(date) {
     return result;
 }
 
-function getWeekDay(date) {
+function getDate(date) {
     let year = date.slice(0, date.indexOf("-"));
     date = date.slice(date.indexOf("-") + 1);
     let month = date.slice(0, date.indexOf("-"));
     date = date.slice(date.indexOf("-") + 1);
-    let d = new Date(year, month - 1, date.slice(0, date.indexOf("T")));
-    return d.getDay();
+    date = (date.indexOf("T") !== -1) ? date.slice(0, date.indexOf("T")) : date ;
+    return new Date(year, month - 1, date);
 }
 
 function fillForecast(data) {
-    let weekDay = getWeekDay(data["current"]["time"]);
+    let weekDay = getDate(data["current"]["time"]).getDay() + 1;
+    let month = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"];
+    let week = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"];
     for (let i = 15 - weekDay; i < 30; i++) {
         let element = document.createElement("div");
-        element.textContent = data["daily"]["time"][i];
+        let div = document.createElement("div");
+        let date = getDate(data["daily"]["time"][i]);
+        let dateText = document.createElement("span");
+        let weekText = document.createElement("span");
+        let maxTemp = document.createElement("span");
+        let minTemp = document.createElement("span");
+        let wci = document.createElement("img");
+        element.style.position = "relative";
+        div.style.display = "grid";
+        div.style.gridTemplateColumns = "1fr 1fr";
+        div.style.gridTemplateRows = "40px 60px 35px 35px";
+        div.style.margin = "20px";
+        if (i < 13) {
+            let overlap = document.createElement("div");
+            overlap.style.position = "absolute";
+            overlap.style.width = "100%";
+            overlap.style.height = "100%";
+            overlap.style.background = "lightgrey";
+            overlap.style.opacity = "0.5";
+            element.append(overlap);
+        }
+        if (i === 13)
+            element.style.background = "#afdafc";
+        if (i === 14)
+            element.style.background = "#C4E2FB";
+        wci.src = "../../images/sun.png";
+        wci.style.width = "100%";
+        wci.style.aspectRatio = "1 / 1";
+        wci.style.gridColumn = "2";
+        wci.style.gridRow = "span 2";
+        maxTemp.textContent = data["daily"]["temperature_2m_max"][i] + " ℃";
+        maxTemp.style.fontSize = "28px";
+        maxTemp.style.textAlign = "center";
+        minTemp.textContent = data["daily"]["temperature_2m_min"][i] + " ℃";
+        minTemp.style.fontSize = "20px";
+        minTemp.style.color = "grey";
+        minTemp.style.gridRow = "2";
+        minTemp.style.textAlign = "center";
+        dateText.textContent = date.getDate() + " " + month[date.getMonth()];
+        dateText.style.fontSize = "24px";
+        dateText.style.gridRow = "3";
+        dateText.style.gridColumn = "span 2";
+        weekText.textContent = week[date.getDay()];
+        weekText.style.fontSize = "20px";
+        weekText.style.gridRow = "4";
+        weekText.style.gridColumn = "span 2";
+        if (date.getDay() >= 5)
+            weekText.style.color = "#fc2f21";
+        else
+            weekText.style.color = "grey";
+        switch (data["daily"]["weather_code"][i]) {
+            case 0:
+            case 1:
+                wci.src = "../../images/sun.png";
+                break;
+            case 2:
+            case 48:
+                wci.src = "../../images/cloudy.png";
+                break;
+            case 3:
+                wci.src = "../../images/cloud.png";;
+                break;
+            case 45:
+                wci.src = "../../images/cloudy.png";
+                break;
+            case 51:
+                wci.src = "../../images/cloudy.png";
+                break;
+            case 53:
+            case 55:
+            case 56:
+            case 57:
+                wci.src = "../../images/raining.png";
+                break;
+            case 61:
+                wci.src = "../../images/raining.png";
+                break;
+            case 63:
+            case 66:
+            case 67:
+                wci.src = "../../images/raining.png";
+                break;
+            case 65:
+                wci.src = "../../images/raining.png";
+                break;
+            case 80:
+            case 81:
+            case 82:
+                wci.src = "../../images/raining.png";
+                break;
+            case 71:
+                wci.src = "../../images/light-snow.png";
+                break;
+            case 73:
+            case 75:
+            case 77:
+            case 85:
+            case 86:
+                wci.src = "../../images/snow.png";
+                break;
+            case 95:
+            case 96:
+            case 99:
+                wci.src = "../../images/thunder.png";
+                break;
+        }
+        div.append(maxTemp, minTemp, wci, dateText, weekText);
+        element.append(div);
         document.getElementById("grid").append(element);
     }
 }

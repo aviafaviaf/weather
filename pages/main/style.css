@@ -302,12 +302,6 @@ input.expandable:focus{
     }
 }
 
-#Weather {
-    margin:3px;
-    color: blueviolet;
-    font-size: 72px;
-}
-
 div.notifications {
     z-index: 14;
     font-size: 24px;
