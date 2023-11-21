@@ -20,9 +20,18 @@
         <div id="grid">
             <div id="current-weather">
                 <h2>Сейчас</h2>
-                <span id="date"></span>
-                <span id="temperature"></span>
-                <span id="humidity"></span>
+                <div>
+                    <div>
+                        <div><i class="fa-solid fa-clock"></i><span id="date"></span></div>
+                        <div><i class="fa-solid fa-temperature-quarter"></i><span id="temperature"></span></div>
+                        <div><i class="fa-solid fa-droplet"></i><span id="humidity"></span></div>
+                        <div><i class="fa-solid fa-wind"></i><span id="wind"></span></div>
+                        <div><i id="weather_code_icon" class="fa-solid fa-droplet"></i><span id="weather_code"></span></div>
+                    </div>
+                    <div>
+                        <img id="weather_image" src="../../images/sun.png" alt="Погода" width="300px" height="300px">
+                    </div>
+                </div>
             </div>
             <div id="map">
                 <h2>Карта погоды</h2>
