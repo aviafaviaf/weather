@@ -388,34 +388,6 @@ ol.notifications li a::before {
     padding: 2px;
 }
 
-.btn-one {
-    border-style: none;
-    margin: 15px;
-    font-size: 18px;
-    background: lightgoldenrodyellow;
-    width: auto;
-    height: 35px;
-    transition: all 0.2s ease-out;
-    position: relative;
-}
-.btn-one::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    opacity: 0;
-    transition: all 0.3s;
-    border-top: solid blue 1px;
-    border-bottom: solid blue 1px;
-    transform: scale(0.1, 1);
-}
-.btn-one:hover::before {
-    transform: scale(1, 1);
-    opacity: 1;
-}
 
 .btn-two {
     display: inline-block;

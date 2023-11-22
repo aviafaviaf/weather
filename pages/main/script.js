@@ -219,21 +219,23 @@ function deleteProduct(buttonDelete) {
     }
 }
 
-function filter(cart, botPrice, topPrice) {
-    let newCart = [];
-    if (!botPrice)
-        botPrice = 0;
-    if (!topPrice)
-        topPrice = 100000;
-    for (let product of cart) {
+function filter(cart, botPrice = 0, topPrice = 100000) {
+    return cart.filter(function(product) {
         if (!(product.price < botPrice || product.price >= topPrice))
-            newCart.push(product);
-    }
-    return newCart;
+            return true;
+    });
 }
 
 document.getElementById("price-filter").onsubmit = function () {
-    let filteredCart = filter(cart, document.getElementById("bottom-price").value, document.getElementById("top-price").value);
+    // let filteredCart = filter(cart, document.getElementById("bottom-price").value, document.getElementById("top-price").value);
+    let filteredCart = cart.filter(function(product) {
+        let bot = document.getElementById("bottom-price").value;
+        let top = document.getElementById("top-price").value;
+        bot = (bot) ? bot : 0;
+        top = (top) ? top : 100000;
+        if (!(product.price < bot || product.price >= top))
+            return true;
+    });
     updateCart(filteredCart);
 }
 

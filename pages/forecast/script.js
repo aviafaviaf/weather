@@ -6,6 +6,20 @@ fetch("https://api.open-meteo.com/v1/forecast?latitude=55.7522&longitude=37.6156
         console.log(data);
         fillCurrentWeather(data, "Москве");
         fillForecast(data);
+        document.getElementById("showPastDays").onclick = function() {
+            while (document.getElementById("grid").childElementCount !== 2) {
+                document.getElementById("grid").removeChild(document.getElementById("grid").lastChild);
+            }
+            let button = document.getElementById("showPastDays");
+            if (button.textContent.slice(0, button.textContent.indexOf(" ")) === "Показать") {
+                button.textContent = "Скрыть" + button.textContent.slice(button.textContent.indexOf(" "));
+                fillFull(data);
+            }
+            else {
+                button.textContent = "Показать" + button.textContent.slice(button.textContent.indexOf(" "));
+                fillForecast(data);
+            }
+        };
 })
     .catch(function () {
 });
@@ -118,10 +132,126 @@ function getDate(date) {
     date = date.slice(date.indexOf("-") + 1);
     let month = date.slice(0, date.indexOf("-"));
     date = date.slice(date.indexOf("-") + 1);
-    date = (date.indexOf("T") !== -1) ? date.slice(0, date.indexOf("T")) : date ;
+    date = (date.indexOf("T") !== -1) ? date.slice(0, date.indexOf("T")) : date;
     return new Date(year, month - 1, date);
 }
 
+function fillFull(data) {
+    let month = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"];
+    let week = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"];
+    let fill = false;
+    for (let i = 0; i < 30; i++) {
+        let date = getDate(data["daily"]["time"][i]);
+        if (!fill) {
+            if (date.getDay() === 0)
+                fill = true;
+            else
+                continue;
+        }
+        let element = document.createElement("div");
+        let div = document.createElement("div");
+        let dateText = document.createElement("span");
+        let weekText = document.createElement("span");
+        let maxTemp = document.createElement("span");
+        let minTemp = document.createElement("span");
+        let wci = document.createElement("img");
+        element.style.position = "relative";
+        div.style.display = "grid";
+        div.style.gridTemplateColumns = "1fr 1fr";
+        div.style.gridTemplateRows = "40px 60px 35px 35px";
+        div.style.margin = "20px";
+        if (i === 13)
+            element.style.background = "#b3deff";
+        if (i === 14)
+            element.style.background = "#C4E2FB";
+        wci.src = "../../images/sun.png";
+        wci.style.width = "100%";
+        wci.style.aspectRatio = "1 / 1";
+        wci.style.gridColumn = "2";
+        wci.style.gridRow = "span 2";
+        maxTemp.textContent = data["daily"]["temperature_2m_max"][i] + " ℃";
+        maxTemp.style.whiteSpace = "nowrap"
+        maxTemp.style.fontSize = "1.6vw";
+        maxTemp.style.textAlign = "center";
+        minTemp.textContent = data["daily"]["temperature_2m_min"][i] + " ℃";
+        minTemp.style.fontSize = "1.1vw";
+        minTemp.style.color = "grey";
+        minTemp.style.gridRow = "2";
+        minTemp.style.textAlign = "center";
+        dateText.textContent = date.getDate() + " " + month[date.getMonth()];
+        dateText.style.fontSize = "24px";
+        dateText.style.gridRow = "3";
+        dateText.style.gridColumn = "span 2";
+        weekText.textContent = week[date.getDay()];
+        weekText.style.fontSize = "20px";
+        weekText.style.gridRow = "4";
+        weekText.style.gridColumn = "span 2";
+        dateText.style.whiteSpace = "nowrap";
+        if (date.getDay() >= 5)
+            weekText.style.color = "#fc2f21";
+        else
+            weekText.style.color = "grey";
+        switch (data["daily"]["weather_code"][i]) {
+            case 0:
+            case 1:
+                wci.src = "../../images/sun.png";
+                break;
+            case 2:
+            case 48:
+                wci.src = "../../images/cloudy.png";
+                break;
+            case 3:
+                wci.src = "../../images/cloud.png";;
+                break;
+            case 45:
+                wci.src = "../../images/cloudy.png";
+                break;
+            case 51:
+                wci.src = "../../images/cloudy.png";
+                break;
+            case 53:
+            case 55:
+            case 56:
+            case 57:
+                wci.src = "../../images/raining.png";
+                break;
+            case 61:
+                wci.src = "../../images/raining.png";
+                break;
+            case 63:
+            case 66:
+            case 67:
+                wci.src = "../../images/raining.png";
+                break;
+            case 65:
+                wci.src = "../../images/raining.png";
+                break;
+            case 80:
+            case 81:
+            case 82:
+                wci.src = "../../images/raining.png";
+                break;
+            case 71:
+                wci.src = "../../images/light-snow.png";
+                break;
+            case 73:
+            case 75:
+            case 77:
+            case 85:
+            case 86:
+                wci.src = "../../images/snow.png";
+                break;
+            case 95:
+            case 96:
+            case 99:
+                wci.src = "../../images/thunder.png";
+                break;
+        }
+        div.append(maxTemp, minTemp, wci, dateText, weekText);
+        element.append(div);
+        document.getElementById("grid").append(element);
+    }
+}
 function fillForecast(data) {
     let weekDay = getDate(data["current"]["time"]).getDay() + 1;
     let month = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"];
@@ -146,11 +276,13 @@ function fillForecast(data) {
             overlap.style.width = "100%";
             overlap.style.height = "100%";
             overlap.style.background = "lightgrey";
+            element.style.filter = "blur(2px)";
             overlap.style.opacity = "0.5";
             element.append(overlap);
         }
-        if (i === 13)
-            element.style.background = "#afdafc";
+        if (i === 13) {
+            element.style.background = "#b3deff";
+        }
         if (i === 14)
             element.style.background = "#C4E2FB";
         wci.src = "../../images/sun.png";
@@ -159,10 +291,11 @@ function fillForecast(data) {
         wci.style.gridColumn = "2";
         wci.style.gridRow = "span 2";
         maxTemp.textContent = data["daily"]["temperature_2m_max"][i] + " ℃";
-        maxTemp.style.fontSize = "28px";
+        maxTemp.style.whiteSpace = "nowrap"
+        maxTemp.style.fontSize = "1.6vw";
         maxTemp.style.textAlign = "center";
         minTemp.textContent = data["daily"]["temperature_2m_min"][i] + " ℃";
-        minTemp.style.fontSize = "20px";
+        minTemp.style.fontSize = "1.1vw";
         minTemp.style.color = "grey";
         minTemp.style.gridRow = "2";
         minTemp.style.textAlign = "center";
@@ -174,6 +307,7 @@ function fillForecast(data) {
         weekText.style.fontSize = "20px";
         weekText.style.gridRow = "4";
         weekText.style.gridColumn = "span 2";
+        dateText.style.whiteSpace = "nowrap";
         if (date.getDay() >= 5)
             weekText.style.color = "#fc2f21";
         else
