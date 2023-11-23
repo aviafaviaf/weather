@@ -81,7 +81,7 @@ section {
 }
 
 
-@media (min-width: 800px) and (max-width: 1300px) {
+@media (min-width: 800px) and (max-width: 1600px) {
     #grid {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
