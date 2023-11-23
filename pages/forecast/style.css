@@ -65,6 +65,7 @@ section {
         outline: none;
         background: #f5f5d0;
         font-size: 18px;
+        height: 150px;
     }
 }
 #map {

@@ -213,11 +213,11 @@ function fillFull(data) {
         wci.style.aspectRatio = "1 / 1";
         wci.style.gridColumn = "2";
         wci.style.gridRow = "span 2";
-        maxTemp.textContent = data["daily"]["temperature_2m_max"][i] + " ℃";
+        maxTemp.textContent = Math.floor(data["daily"]["temperature_2m_max"][i]) + " ℃";
         maxTemp.style.whiteSpace = "nowrap"
         maxTemp.style.fontSize = "24px";
         maxTemp.style.textAlign = "center";
-        minTemp.textContent = data["daily"]["temperature_2m_min"][i] + " ℃";
+        minTemp.textContent = Math.floor(data["daily"]["temperature_2m_min"][i]) + " ℃";
         minTemp.style.fontSize = "20px";
         minTemp.style.color = "grey";
         minTemp.style.gridRow = "2";
@@ -339,11 +339,11 @@ function fillForecast(data) {
         wci.style.aspectRatio = "1 / 1";
         wci.style.gridColumn = "2";
         wci.style.gridRow = "span 2";
-        maxTemp.textContent = data["daily"]["temperature_2m_max"][i] + " ℃";
+        maxTemp.textContent = Math.floor(data["daily"]["temperature_2m_max"][i]) + " ℃";
         maxTemp.style.whiteSpace = "nowrap"
         maxTemp.style.fontSize = "24px";
         maxTemp.style.textAlign = "center";
-        minTemp.textContent = data["daily"]["temperature_2m_min"][i] + " ℃";
+        minTemp.textContent = Math.floor(data["daily"]["temperature_2m_min"][i]) + " ℃";
         minTemp.style.fontSize = "20px";
         minTemp.style.color = "grey";
         minTemp.style.gridRow = "2";
