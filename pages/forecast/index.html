@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-    <script defer src="script.js"></script>
+    <script defer type="module" src="script.js"></script>
     <script defer src="../../header.js"></script>
     <script defer src="../../footer.js"></script>
 </head>
@@ -31,8 +31,11 @@
                     <div>
                         <img id="weather_image" src="../../images/sun.png" alt="Погода" width="300px" height="300px">
                     </div>
-                </div>
-                <div id="buttons">
+                    <div id="city-select">
+                            <label for="city-search">🔍</label>
+                            <input id="city-search" type="text" maxlength="20">
+                            <select name="select" id="city" size="6"></select>
+                    </div>
                     <button class="btn-one" id="showPastDays">Показать погоду за прошлые дни</button>
                 </div>
             </div>

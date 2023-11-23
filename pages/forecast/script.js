@@ -1,31 +1,72 @@
 "use strict"
+import cities from './russian-cities.json' assert {type: 'json'};
+function getData(city, link) {
+    fetch(link)
+        .then(function (resp) {
+            return resp.json()
+        })
+        .then(function (data) {
+            console.log(data);
+            fillCurrentWeather(data, city);
+            fillForecast(data);
+            switchButtonPastDays(data);
+        })
+        .catch(function () {
+        });
+}
 
-fetch("https://api.open-meteo.com/v1/forecast?latitude=55.7522&longitude=37.6156&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,weather_code,wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=auto&past_days=14&forecast_days=16")
-    .then(function (resp) { return resp.json() })
-    .then(function (data) {
-        console.log(data);
-        fillCurrentWeather(data, "Москве");
-        fillForecast(data);
-        document.getElementById("showPastDays").onclick = function() {
-            while (document.getElementById("grid").childElementCount !== 2) {
-                document.getElementById("grid").removeChild(document.getElementById("grid").lastChild);
-            }
-            let button = document.getElementById("showPastDays");
-            if (button.textContent.slice(0, button.textContent.indexOf(" ")) === "Показать") {
-                button.textContent = "Скрыть" + button.textContent.slice(button.textContent.indexOf(" "));
-                fillFull(data);
-            }
-            else {
-                button.textContent = "Показать" + button.textContent.slice(button.textContent.indexOf(" "));
-                fillForecast(data);
-            }
-        };
-})
-    .catch(function () {
-});
+function fillCitySelect() {
+    let option = document.createElement("option");
+    option.value = "Москва" + " " + "55.7522" + "|" + "37.6156";
+    option.textContent = "Москва";
+    document.getElementById("city").append(option);
+    for (let city of cities) {
+        if (city.name === "Москва")
+            continue
+        option = document.createElement("option");
+        option.value = city["name"] + " " + city["coords"]["lat"] + "|" + city["coords"]["lon"];
+        option.textContent = city["name"];
+        document.getElementById("city").append(option);
+    }
 
+}
+
+document.getElementById("city").onchange = function () {
+    while (document.getElementById("grid").childElementCount !== 2) {
+        document.getElementById("grid").removeChild(document.getElementById("grid").lastChild);
+    }
+    let city = document.getElementById("city").value;
+    let lat = city.slice(city.indexOf(" ") + 1, city.indexOf("|"));
+    let lon = city.slice(city.indexOf("|") + 1);
+    let name = city.slice(0, city.indexOf(" "));
+    getData(name,`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,weather_code,wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=auto&past_days=14&forecast_days=16`);
+}
+
+document.getElementById("city-search").oninput = function () {
+    let value = document.getElementById("city-search").value;
+    for (let option of document.querySelectorAll("#city > option")) {
+        option.style.display = (option.textContent.toLowerCase().startsWith(value.toLowerCase())) ? "block" : "none";
+    }
+}
+
+function switchButtonPastDays(data) {
+    document.getElementById("showPastDays").onclick = function() {
+        while (document.getElementById("grid").childElementCount !== 2) {
+            document.getElementById("grid").removeChild(document.getElementById("grid").lastChild);
+        }
+        let button = document.getElementById("showPastDays");
+        if (button.textContent.slice(0, button.textContent.indexOf(" ")) === "Показать") {
+            button.textContent = "Скрыть" + button.textContent.slice(button.textContent.indexOf(" "));
+            fillFull(data);
+        }
+        else {
+            button.textContent = "Показать" + button.textContent.slice(button.textContent.indexOf(" "));
+            fillForecast(data);
+        }
+    };
+}
 function fillCurrentWeather(data, city) {
-    document.getElementById("date").textContent = "Сейчас в " + city + " " + transformDate(data["current"]["time"]);
+    document.getElementById("date").textContent = "Сейчас в городе " + city + " " + transformDate(data["current"]["time"]);
     document.getElementById("temperature").textContent = "Температура: " + data["current"]["temperature_2m"] + "℃ (Ощущается как " + data["current"]["apparent_temperature"] + "℃)";
     document.getElementById("humidity").textContent = "Влажность: " + data["current"]["relative_humidity_2m"] + "%";
     document.getElementById("wind").textContent = "Ветер: " + Math.round(data["current"]["wind_speed_10m"] / 0.36) / 10 + " м/с";
@@ -123,7 +164,7 @@ function transformDate(date) {
     let month = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"];
     result = month[Number(date.slice(0, date.indexOf("-"))) - 1] + " " + result + " ";
     date = date.slice(date.indexOf("-") + 1);
-    result = date.slice(0, date.indexOf("T")) + "-ое " + result + date.slice(date.indexOf("T") + 1);
+    result = date.slice(0, date.indexOf("T")) + " " + result + date.slice(date.indexOf("T") + 1);
     return result;
 }
 
@@ -140,13 +181,16 @@ function fillFull(data) {
     let month = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"];
     let week = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"];
     let fill = false;
+    let skipCount = 0;
     for (let i = 0; i < 30; i++) {
         let date = getDate(data["daily"]["time"][i]);
         if (!fill) {
             if (date.getDay() === 0)
                 fill = true;
-            else
+            else {
+                skipCount++;
                 continue;
+            }
         }
         let element = document.createElement("div");
         let div = document.createElement("div");
@@ -171,10 +215,10 @@ function fillFull(data) {
         wci.style.gridRow = "span 2";
         maxTemp.textContent = data["daily"]["temperature_2m_max"][i] + " ℃";
         maxTemp.style.whiteSpace = "nowrap"
-        maxTemp.style.fontSize = "1.6vw";
+        maxTemp.style.fontSize = "24px";
         maxTemp.style.textAlign = "center";
         minTemp.textContent = data["daily"]["temperature_2m_min"][i] + " ℃";
-        minTemp.style.fontSize = "1.1vw";
+        minTemp.style.fontSize = "20px";
         minTemp.style.color = "grey";
         minTemp.style.gridRow = "2";
         minTemp.style.textAlign = "center";
@@ -250,6 +294,11 @@ function fillFull(data) {
         div.append(maxTemp, minTemp, wci, dateText, weekText);
         element.append(div);
         document.getElementById("grid").append(element);
+        if ((i + 1) % 7 === skipCount) {
+            let voidElement = document.createElement("div");
+            voidElement.className = "void";
+            document.getElementById("grid").append(voidElement);
+        }
     }
 }
 function fillForecast(data) {
@@ -292,15 +341,15 @@ function fillForecast(data) {
         wci.style.gridRow = "span 2";
         maxTemp.textContent = data["daily"]["temperature_2m_max"][i] + " ℃";
         maxTemp.style.whiteSpace = "nowrap"
-        maxTemp.style.fontSize = "1.6vw";
+        maxTemp.style.fontSize = "24px";
         maxTemp.style.textAlign = "center";
         minTemp.textContent = data["daily"]["temperature_2m_min"][i] + " ℃";
-        minTemp.style.fontSize = "1.1vw";
+        minTemp.style.fontSize = "20px";
         minTemp.style.color = "grey";
         minTemp.style.gridRow = "2";
         minTemp.style.textAlign = "center";
         dateText.textContent = date.getDate() + " " + month[date.getMonth()];
-        dateText.style.fontSize = "24px";
+        dateText.style.fontSize = "20px";
         dateText.style.gridRow = "3";
         dateText.style.gridColumn = "span 2";
         weekText.textContent = week[date.getDay()];
@@ -371,5 +420,13 @@ function fillForecast(data) {
         div.append(maxTemp, minTemp, wci, dateText, weekText);
         element.append(div);
         document.getElementById("grid").append(element);
+        if ((i + 1) % 7 === (15 - weekDay) % 7) {
+            let voidElement = document.createElement("div");
+            voidElement.className = "void";
+            document.getElementById("grid").append(voidElement);
+        }
     }
 }
+
+getData("Москва","https://api.open-meteo.com/v1/forecast?latitude=55.7522&longitude=37.6156&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,weather_code,wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=auto&past_days=14&forecast_days=16");
+fillCitySelect();
