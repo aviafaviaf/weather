@@ -124,9 +124,10 @@ footer {
     box-shadow: 0 0 10px grey;
     display: grid;
     margin-top: 20px;
-    background: #d4d4d4;
+    background: #dfdfdf;
     grid-template-columns: 24% 24% 24% 24%;
     & > * {
+        border-radius: 3px;
         background: lightgrey;
         box-shadow: 0 0 5px grey;
         margin: 10px 20px 10px 20px;
