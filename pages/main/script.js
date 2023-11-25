@@ -72,11 +72,9 @@ function changeButtonColor (button) {
         button.style.background = "ghostwhite";
 }
 
-
 function isEmpty(object) {
     return Object.keys(object).length === 0;
 }
-
 
 let captcha = {
     value: "",
@@ -150,4 +148,44 @@ function truncate(str, maxlength) {
 
 for (let card of document.querySelectorAll("#cards > div > div > div > p")) {
     card.textContent = truncate(card.textContent, 140);
+}
+
+function addNotification(text) {
+    let notification = document.createElement("li");
+    let notification_a = document.createElement("a");
+    notification_a.textContent = text;
+    notification.append(notification_a);
+    document.getElementById("ol-notifications").append(notification);
+}
+let notificationSpawn = setInterval(addNotification, 3000, "Завтра будет дождь!");
+
+
+document.getElementById("delay_notifications").onclick = function () {
+    clearInterval(notificationSpawn);
+}
+
+document.getElementById("add_in_ul_list").onclick = function () {
+    let list = document.getElementById("ul_list");
+    let text = prompt("Введите текст");
+    while (text) {
+        let li = document.createElement("li");
+        li.textContent = text;
+        list.append(li);
+        text = prompt("Введите текст");
+    }
+}
+
+document.getElementById("add_notification").onclick = function () {
+    let text = prompt("Введите текст");
+    showNotification(text);
+}
+
+function showNotification(options) {
+    let notification = document.createElement("div");
+    notification.className = "notification";
+    notification.textContent = options;
+    setTimeout(function () {
+        notification.style.display = "none";
+    }, 3000);
+    document.body.append(notification);
 }

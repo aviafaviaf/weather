@@ -271,7 +271,8 @@ input.expandable:focus{
     }
 }
 
-div.notifications {
+#notifications {
+    overflow: hidden;
     z-index: 14;
     font-size: 24px;
     display: flex;
@@ -288,22 +289,29 @@ div.notifications {
     bottom: 15px;
     right: 5px;
 }
-div.notifications::before  {
+#notifications::before  {
     content: '🔔';
     font-size: 24px;
 }
-div.notifications:hover {
+#notifications:hover {
+    overflow-y: scroll;
     justify-content: right;
     border-radius: 10px;
     border: 1px solid;
-    width: 350px;
+    width: 380px;
     height: 400px;
     background: #ffefcf;
 }
-div.notifications:hover::before  {
+#delay_notifications {
+    display: none;
+    #notifications:hover & {
+        display: block;
+    }
+}
+#notifications:hover::before  {
     font-size: 0;
 }
-ol.notifications {
+#ol-notifications {
     list-style: none;
     padding-right: 10px;
     padding-left: 5px;
@@ -312,10 +320,10 @@ ol.notifications {
     flex-direction: column;
     justify-content: right;
 }
-div.notifications:hover ol.notifications {
+#notifications:hover #ol-notifications {
     display: flex;
 }
-ol.notifications li{
+#ol-notifications li{
     border: solid 1px;
     counter-increment: count;
     margin-top: 10px;
@@ -329,18 +337,18 @@ ol.notifications li{
     flex-flow: row nowrap;
     align-items: center;
 }
-ol.notifications li:hover {
+#ol-notifications li:hover {
     transform: scale(1.05, 1.05);
     background-color: #dfefff;
 }
-ol.notifications li a {
+#ol-notifications li a {
     text-align: center;
     width: inherit;
     position: relative;
     bottom: 10px;
     margin-left: 30px;
 }
-ol.notifications li a::before {
+#ol-notifications li a::before {
     content: counter(count);
     position: relative;
     top: 20px;
@@ -523,7 +531,23 @@ button.like {
     bottom: 20px;
 }
 
-
+div.notification {
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    position: fixed;
+    right: 50px;
+    bottom: 30px;
+    background: #a0b0ff;
+    border-radius: 15px;
+    box-shadow: lightgrey 0 0 10px;
+    min-width: 200px;
+    min-height: 50px;
+    width: auto;
+    height: auto;
+}
 
 /* cards */
 #cards1 {

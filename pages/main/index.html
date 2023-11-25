@@ -15,13 +15,14 @@
     <script defer src="../../footer.js"></script>
 </head>
 <body>
-<div class="notifications">
-    <ol class="notifications">
+<div id="notifications">
+    <ol id="ol-notifications">
         <li><a>На выходных будет хорошая погода</a></li>
         <li><a>Завтра будет дождь! Возьмите зонт</a></li>
         <li><a>Появился прогноз погоды на ноябрь</a></li>
         <li><a>Зима будет холодной!</a></li>
     </ol>
+    <button id="delay_notifications">🔔</button>
 </div>
 <main>
     <div id="grid">
@@ -132,9 +133,11 @@
             <h2>Карта погоды</h2>
             <iframe src="https://embed.windy.com/embed2.html?lat=55.735&lon=37.738&detailLat=55.735&detailLon=37.738&width=650&height=450&zoom=8&level=surface&overlay=temp&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1"></iframe>
         </div>
-        <div class="in-grid" id="video">
-            <h2>Природные явления</h2>
-            <iframe class="center" width="893" height="502" src="https://www.youtube.com/embed/Ha0DaF-D9Xk" title="7 САМЫХ РЕДКИХ ПРИРОДНЫХ ЯВЛЕНИЙ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <div class="in-grid">
+            <h2>Список</h2>
+            <button id="add_in_ul_list">Добавить элементы в список</button>
+            <button id="add_notification">Показать уведомление</button>
+            <ul id="ul_list"></ul>
         </div>
         <div class="in-grid" id="list">
             <h2>Список месяцев</h2>
