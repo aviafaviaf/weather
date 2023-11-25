@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Прогноз погоды</title>
+    <script src="https://kit.fontawesome.com/5e417c59b3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../globalStyle.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="../../images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <script defer type="module" src="script.js"></script>
+    <script defer src="../../header.js"></script>
+    <script defer src="../../footer.js"></script>
+</head>
+<body>
+    <section>
+        <h2>Товары</h2>
+        <form id="price-filter" method="dialog">
+            <label for="bottom-price">Цена от </label>
+            <input id="bottom-price" type="text">
+            <label for="top-price">до </label>
+            <input id="top-price" type="text">
+            <input type="submit" value="Применить">
+        </form>
+        <button class="btn-one" id="sort-ascending">Отсортировать по возрастанию цены</button>
+        <button class="btn-one" id="sort-descending">Отсортировать по убыванию цены</button>
+        <div id="products">
+        </div>
+        <h2>Корзина</h2>
+        <div id="cart"></div>
+        <p id="price">Цена: 0 ₽</p>
+        <button class="btn-one" id="clear-cart">Очистить корзину</button>
+    </section>
+</body>
+</html>

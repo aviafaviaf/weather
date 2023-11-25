@@ -201,6 +201,7 @@ function fillFull(data) {
         let wci = document.createElement("img");
         element.style.position = "relative";
         div.style.display = "grid";
+        div.style.position = "relative";
         div.style.gridTemplateColumns = "1fr 1fr";
         div.style.gridTemplateRows = "40px 60px 35px 35px";
         div.style.margin = "20px";

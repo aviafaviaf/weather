@@ -17,9 +17,6 @@
 .void {
     display: none;
 }
-section {
-    background: #fdfdff;
-}
 #current-weather {
     position: relative;
     grid-column: span 4;

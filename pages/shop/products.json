@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Дождевик",
+    "price": 440,
+    "image": "https://cdn1.ozone.ru/s3/multimedia-7/6270735487.jpg"
+  },
+  {
+    "name": "Зонт",
+    "price": "706",
+    "image": "https://clipart-library.com/images_k/umbrella-transparent-background/umbrella-transparent-background-6.png"
+  },
+  {
+    "name": "Солнечные очки",
+    "price": 220,
+    "image": "https://www.clipartbest.com/cliparts/McL/ME4/McLME4r7i.jpg"
+  }
+]

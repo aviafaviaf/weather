@@ -27,37 +27,6 @@ div.in-grid {
     box-shadow: 0 0 10px darkgrey;
     border-radius: 5px;
 }
-#products {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    height: 400px;
-    gap: 40px;
-    & > div {
-        position: relative;
-        width: 30%;
-        height: 300px;
-        & > img {
-            height: 100%;
-            width: 100%;
-        }
-        & > button {
-            position: absolute;
-            bottom: 0;
-            left: 40%;
-        }
-    }
-}
-#cart {
-    min-height: 100px;
-    box-shadow: 0 0 10px lightgrey;
-    margin: 10px 10px 10px 10px;
-    display: flex;
-    flex-direction: column;
-    & > div {
-        margin: 10px 0 10px 15px;
-    }
-}
 #map {
     grid-column: span 2;
     grid-row: 2;

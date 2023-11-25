@@ -11,7 +11,7 @@ header.innerHTML = `
         <nav>
             <ul class="horizontal-list">
                 <li><a href="../forecast/index.html"><span>Прогноз погоды</span></a></li>
-                <li><a href="#1"><span>Что такое</span></a></li>
+                <li><a href="../shop/index.html"><span>Магазин</span></a></li>
                 <li><a href="#2"><span>Климат России</span></a></li>
                 <li><a href="#map"><span>Карта погоды</span></a></li>
             </ul>
