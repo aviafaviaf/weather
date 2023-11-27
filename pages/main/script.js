@@ -157,11 +157,17 @@ function addNotification(text) {
     notification.append(notification_a);
     document.getElementById("ol-notifications").append(notification);
 }
-let notificationSpawn = setInterval(addNotification, 3000, "Завтра будет дождь!");
+function startNotificationSpawn() {
+    return setInterval(addNotification, 3000, "Завтра будет идти снег!");
+}
 
+let notificationSpawn = startNotificationSpawn();
 
 document.getElementById("delay_notifications").onclick = function () {
     clearInterval(notificationSpawn);
+    setTimeout(function () {
+        notificationSpawn = startNotificationSpawn();
+    }, 10000);
 }
 
 document.getElementById("add_in_ul_list").onclick = function () {
@@ -179,6 +185,7 @@ document.getElementById("add_notification").onclick = function () {
     let text = prompt("Введите текст");
     showNotification(text);
 }
+
 
 function showNotification(options) {
     let notification = document.createElement("div");
