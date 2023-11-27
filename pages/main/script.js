@@ -157,17 +157,33 @@ function addNotification(text) {
     notification.append(notification_a);
     document.getElementById("ol-notifications").append(notification);
 }
+
+
+let notificationSpawn;
 function startNotificationSpawn() {
-    return setInterval(addNotification, 3000, "Завтра будет идти снег!");
+    notificationSpawn =  setInterval(addNotification, 3000, "Завтра будет идти снег!");
 }
 
-let notificationSpawn = startNotificationSpawn();
+startNotificationSpawn();
+
+function delay(func, time) {
+    return function () {
+        setTimeout(() => func.apply(this, arguments), time);
+    };
+}
+
+let notificationSpawnDelay = delay(startNotificationSpawn, 10000);
+
+function delayNotificationSpawn() {
+    if (notificationSpawn !== null) {
+        clearInterval(notificationSpawn);
+        notificationSpawnDelay();
+        notificationSpawn = null;
+    }
+}
 
 document.getElementById("delay_notifications").onclick = function () {
-    clearInterval(notificationSpawn);
-    setTimeout(function () {
-        notificationSpawn = startNotificationSpawn();
-    }, 10000);
+    delayNotificationSpawn();
 }
 
 document.getElementById("add_in_ul_list").onclick = function () {
