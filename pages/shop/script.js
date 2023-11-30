@@ -70,8 +70,10 @@ for (let productElement of document.getElementsByClassName("product-div")) {
         }
         else {
             for (let prod of prods) {
-                if (prod.productElement === productElement)
+                if (prod.productElement === productElement) {
+                    prod.productElementInCart.firstChild.textContent = "x1 " + prod.name + " | " + prod.price + " ₽";
                     addProductInCart(prod);
+                }
             }
             button.textContent = "В корзине";
             productElement.style.background = "lightblue";
@@ -107,6 +109,7 @@ function deleteProduct(buttonDelete) {
     for (let i = 0; i < cart.length; i++) {
         if (cart[i].buttonDelete === buttonDelete) {
             cart[i].productElement.lastChild.textContent = cart[i].name + " | " + cart[i].price + " ₽";
+            cart[i].count = 1;
             cart.splice(i, 1);
             updateCart(cart);
             break;

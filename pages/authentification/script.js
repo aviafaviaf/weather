@@ -34,44 +34,6 @@ function askPassword() {
         alert("Неверный пароль");
 }
 
-let heartsSpawn = false;
-
-for (let button of document.getElementsByClassName("like")) {
-    button.onclick = function () {
-        changeButtonColor(button);
-        window.onclick = switchHeartsSpawn;
-    }
-}
-
-function switchHeartsSpawn() {
-    if (!heartsSpawn) {
-        heartsSpawn = true;
-        window.onmousemove = (e) => spawnHeart(e);
-    }
-    else {
-        heartsSpawn = false;
-        window.onclick = null;
-        window.onmousemove = null;
-    }
-}
-
-function spawnHeart(e) {
-    let heart = document.createElement("span");
-    heart.style.position = "absolute";
-    heart.style.left = e.pageX.toString() + "px";
-    heart.style.top = e.pageY.toString() + "px";
-    heart.textContent = "❤";
-    heart.style.zIndex = "20";
-    document.body.appendChild(heart);
-}
-
-function changeButtonColor (button) {
-    if (button.style.background === "ghostwhite" || !button.style.background)
-        button.style.background = "#DE3163";
-    else
-        button.style.background = "ghostwhite";
-}
-
 function isEmpty(object) {
     return Object.keys(object).length === 0;
 }

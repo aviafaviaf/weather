@@ -245,6 +245,7 @@ footer {
     height: 2em;
     transition: all 0.2s ease-out;
     position: relative;
+    white-space: nowrap;
     &:hover {
         cursor: pointer;
     }
