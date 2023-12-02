@@ -19,4 +19,5 @@ header.innerHTML = `
         </nav>
     </div>
 `;
+
 document.body.prepend(header.content);
