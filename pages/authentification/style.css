@@ -3,6 +3,9 @@ div.flex {
     flex-flow: row wrap;
     display: flex;
 }
+body {
+    background-image: url("../../images/background.png");
+}
 div.f {
     width: auto;
     padding: 20px;
@@ -324,6 +327,7 @@ input.expandable:focus{
     display: flex;
 }
 #ol-notifications li{
+    position: relative;
     border: solid 1px;
     counter-increment: count;
     margin-top: 10px;
@@ -786,7 +790,25 @@ div.notification {
         left: 70px;
     }
 }
+button.delete-notification {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
 
+#center {
+    position: relative;
+    background: lightblue;
+    border-radius: 5px;
+    width: 300px;
+    height: 250px;
+    & > img {
+        margin: 0;
+        position: relative;
+        width: 70%;
+        height: 70%;
+    }
+}
 
 /* адаптация */
 

@@ -115,8 +115,12 @@ for (let card of document.querySelectorAll("#cards > div > div > div > p")) {
 function addNotification(text) {
     let notification = document.createElement("li");
     let notification_a = document.createElement("a");
+    let button = document.createElement("button");
+    button.className = "delete-notification";
+    button.textContent = "✕";
     notification_a.textContent = text;
     notification.append(notification_a);
+    notification.append(button);
     document.getElementById("ol-notifications").append(notification);
 }
 
@@ -174,3 +178,36 @@ function showNotification(options) {
     }, 3000);
     document.body.append(notification);
 }
+
+function placeImageInCenter() {
+    let image = document.getElementById("img-center");
+    let div = document.getElementById("center");
+    div.style.left = (document.body.offsetWidth - div.offsetWidth) / 2 + "px";
+    image.style.left = (div.offsetWidth - image.offsetWidth) / 2 + "px";
+    image.style.top = (div.offsetHeight - image.offsetHeight) / 2 + "px";
+}
+
+placeImageInCenter();
+window.onresize = placeImageInCenter;
+
+window.onclick = function (e) {
+    if (e.clientX < 1500)
+        alert("x: " + e.clientX + ", y: " + e.clientY);
+}
+document.getElementById("ol-notifications").onclick = function (event) {
+    if (event.target.tagName !== "BUTTON")
+        return;
+    event.target.parentNode.style.display = "none";
+}
+
+window.addEventListener("scroll", function () {
+    document.body.style.backgroundPosition = "center " + (window.scrollY * 0.3) + "px";
+});
+
+window.addEventListener("scroll", function () {
+    for (let element of document.querySelectorAll(".in-grid")) {
+        if (scrollY > element.getBoundingClientRect().y  + scrollY)
+            element.style.background = "red";
+        else element.style.background = "blue";
+    }
+});
