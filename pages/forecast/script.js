@@ -432,6 +432,7 @@ for (let li of document.querySelectorAll("#city li")) {
         let city = li.dataset.city;
         let lat = city.slice(0, city.indexOf("|"));
         let lon = city.slice(city.indexOf("|") + 1);
+        document.getElementById("showPastDays").textContent = "Показать погоду за прошлые дни";
         getData(li.textContent, `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,weather_code,wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=auto&past_days=14&forecast_days=16`);
     }
 }

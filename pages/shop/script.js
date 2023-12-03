@@ -89,6 +89,7 @@ function addProductInCart(product) {
 
 document.getElementById("clear-cart").onclick = function() {
     for (let i = 0; i < cart.length; i++) {
+        cart[i].productElement.style.background = "#ededff";
         cart[i].productElement.lastChild.textContent = cart[i].name + " | " + cart[i].price + " ₽";
     }
     cart = [];
@@ -109,6 +110,7 @@ function deleteProduct(buttonDelete) {
     for (let i = 0; i < cart.length; i++) {
         if (cart[i].buttonDelete === buttonDelete) {
             cart[i].productElement.lastChild.textContent = cart[i].name + " | " + cart[i].price + " ₽";
+            cart[i].productElement.style.background = "#ededff";
             cart[i].count = 1;
             cart.splice(i, 1);
             updateCart(cart);

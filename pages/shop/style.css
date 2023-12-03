@@ -22,10 +22,6 @@
             bottom: 20px;
             right: 30px;
         }
-        &:hover {
-            transition: 0.5s;
-            background: mediumpurple;
-        }
     }
 }
 #cart {

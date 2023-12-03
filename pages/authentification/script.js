@@ -207,7 +207,7 @@ window.addEventListener("scroll", function () {
 window.addEventListener("scroll", function () {
     for (let element of document.querySelectorAll(".in-grid")) {
         if (scrollY > element.getBoundingClientRect().y  + scrollY)
-            element.style.background = "red";
-        else element.style.background = "blue";
+            element.style.background = "#ffeec7";
+        else element.style.background = "#ededff";
     }
 });
