@@ -16,35 +16,24 @@ function getData(city, link) {
 }
 
 function fillCitySelect() {
-    let option = document.createElement("option");
-    option.value = "Москва" + " " + "55.7522" + "|" + "37.6156";
+    let option = document.createElement("li");
+    option.dataset["city"] = "Москва" + " " + "55.7522" + "|" + "37.6156";
     option.textContent = "Москва";
     document.getElementById("city").append(option);
     for (let city of cities) {
         if (city.name === "Москва")
             continue
-        option = document.createElement("option");
-        option.value = city["name"] + " " + city["coords"]["lat"] + "|" + city["coords"]["lon"];
+        option = document.createElement("li");
+        option.dataset["city"] = city["coords"]["lat"] + "|" + city["coords"]["lon"];
         option.textContent = city["name"];
         document.getElementById("city").append(option);
     }
 
 }
 
-document.getElementById("city").onchange = function () {
-    while (document.getElementById("grid").childElementCount !== 2) {
-        document.getElementById("grid").removeChild(document.getElementById("grid").lastChild);
-    }
-    let city = document.getElementById("city").value;
-    let lat = city.slice(city.indexOf(" ") + 1, city.indexOf("|"));
-    let lon = city.slice(city.indexOf("|") + 1);
-    let name = city.slice(0, city.indexOf(" "));
-    getData(name,`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,weather_code,wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=auto&past_days=14&forecast_days=16`);
-}
-
 document.getElementById("city-search").oninput = function () {
     let value = document.getElementById("city-search").value;
-    for (let option of document.querySelectorAll("#city > option")) {
+    for (let option of document.querySelectorAll("#city > li")) {
         option.style.display = (option.textContent.toLowerCase().startsWith(value.toLowerCase())) ? "block" : "none";
     }
 }
@@ -431,3 +420,18 @@ function fillForecast(data) {
 
 getData("Москва","https://api.open-meteo.com/v1/forecast?latitude=55.7522&longitude=37.6156&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,weather_code,wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=auto&past_days=14&forecast_days=16");
 fillCitySelect();
+for (let li of document.querySelectorAll("#city li")) {
+    li.onclick = function () {
+        for (let li of document.querySelectorAll("#city li")) {
+            li.style.background = "#f5f5d0";
+        }
+        li.style.background = "lightblue";
+        while (document.getElementById("grid").childElementCount !== 2) {
+            document.getElementById("grid").removeChild(document.getElementById("grid").lastChild);
+        }
+        let city = li.dataset.city;
+        let lat = city.slice(0, city.indexOf("|"));
+        let lon = city.slice(city.indexOf("|") + 1);
+        getData(li.textContent, `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,weather_code,wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=auto&past_days=14&forecast_days=16`);
+    }
+}

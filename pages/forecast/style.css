@@ -46,6 +46,7 @@
 }
 #city-select {
     margin: 30px;
+    width: 230px;
     position: relative;
     & > label {
         z-index: 1;
@@ -54,16 +55,27 @@
         top: 3px;
     }
     & > input {
+        padding: 0;
+        margin: 0;
         outline: none;
         background: lightcyan;
         font-size: 18px;
+        width: 98%;
     }
-    & > select {
-        outline: none;
+    & > ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
         background: #f5f5d0;
         font-size: 18px;
-        -webkit-appearance: none;;
+        overflow-y: scroll;
+        height: 7em;
+        cursor: pointer;
         width: 100%;
+        & > li {
+            margin: 0;
+            text-indent: 5px;
+        }
     }
 }
 #map {
