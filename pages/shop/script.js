@@ -144,3 +144,10 @@ document.getElementById("sort-descending").onclick = function () {
     });
     updateProducts(prods);
 }
+
+for (let button of document.getElementsByClassName("btn-one")) {
+    while (button.offsetWidth > document.querySelector("#products > div").offsetWidth - 35 && !button.textContent.startsWith("Отсортировать") && Number(window.getComputedStyle(button).fontSize.slice(0, window.getComputedStyle(button).fontSize.indexOf("p"))) > 6) {
+        let fontSize = window.getComputedStyle(button).fontSize;
+        button.style.fontSize = (Number(fontSize.slice(0, fontSize.indexOf("p"))) - 2) + "px";
+    }
+}

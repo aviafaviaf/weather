@@ -10,9 +10,14 @@
     "image": "https://clipart-library.com/images_k/umbrella-transparent-background/umbrella-transparent-background-6.png"
   },
   {
-    "name": "Очки",
+    "name": "Солнечные очки",
     "price": 220,
     "image": "https://free-png.ru/wp-content/uploads/2021/05/free-png.ru-200.png"
+  },
+  {
+    "name": "Зонт",
+    "price": 1220,
+    "image": "https://pngicon.ru/file/uploads/zontik-1-256x209.png"
   },
   {
     "name": "Очки",
@@ -20,14 +25,9 @@
     "image": "https://free-png.ru/wp-content/uploads/2021/05/free-png.ru-200.png"
   },
   {
-    "name": "Очки",
+    "name": "Пляжный зонт",
     "price": 220,
-    "image": "https://free-png.ru/wp-content/uploads/2021/05/free-png.ru-200.png"
-  },
-  {
-    "name": "Очки",
-    "price": 220,
-    "image": "https://free-png.ru/wp-content/uploads/2021/05/free-png.ru-200.png"
+    "image": "https://www.polosa.co.il/wp-content/uploads/2020/03/Shading_1583164584.png"
   },
   {
     "name": "Очки",

@@ -34,7 +34,9 @@
         margin: 10px 0 10px 15px;
     }
 }
-
+.btn-one {
+    font-size: 20px;
+}
 @media (min-width: 800px) and (max-width: 1400px) {
     #products {
         grid-template-columns: 1fr 1fr 1fr;

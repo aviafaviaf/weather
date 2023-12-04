@@ -182,9 +182,9 @@ function showNotification(options) {
 function placeImageInCenter() {
     let image = document.getElementById("img-center");
     let div = document.getElementById("center");
-    div.style.left = (document.body.offsetWidth - div.offsetWidth) / 2 + "px";
-    image.style.left = (div.offsetWidth - image.offsetWidth) / 2 + "px";
-    image.style.top = (div.offsetHeight - image.offsetHeight) / 2 + "px";
+    div.style.left = (document.body.clientWidth - div.offsetWidth) / 2 + "px";
+    image.style.left = (div.clientWidth - image.offsetWidth ) / 2 + "px";
+    image.style.top = (div.clientHeight - image.offsetHeight) / 2 + "px";
 }
 
 placeImageInCenter();
@@ -207,7 +207,7 @@ window.addEventListener("scroll", function () {
 window.addEventListener("scroll", function () {
     for (let element of document.querySelectorAll(".in-grid")) {
         if (scrollY > element.getBoundingClientRect().y  + scrollY)
-            element.style.background = "#ffeec7";
+            element.style.background = "#fae9c2";
         else element.style.background = "#ededff";
     }
 });
