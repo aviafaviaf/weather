@@ -3,9 +3,6 @@ div.flex {
     flex-flow: row wrap;
     display: flex;
 }
-body {
-    background-image: url("../../images/background.png");
-}
 div.f {
     width: auto;
     padding: 20px;

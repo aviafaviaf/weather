@@ -7,7 +7,7 @@
         transition: 0.5s;
         cursor: pointer;
         position: relative;
-        width: 100%;
+        width: auto;
         box-shadow: 0 0 10px lightgrey;
         border-radius: 10px;
         height: 320px;
@@ -33,6 +33,11 @@
     & > div {
         margin: 10px 0 10px 15px;
     }
+}
+button.shop {
+    width: 60%;
+    height: auto;
+    white-space: normal;
 }
 .btn-one {
     font-size: 20px;

@@ -199,11 +199,6 @@ document.getElementById("ol-notifications").onclick = function (event) {
         return;
     event.target.parentNode.style.display = "none";
 }
-
-window.addEventListener("scroll", function () {
-    document.body.style.backgroundPosition = "center " + (window.scrollY * 0.3) + "px";
-});
-
 window.addEventListener("scroll", function () {
     for (let element of document.querySelectorAll(".in-grid")) {
         if (scrollY > element.getBoundingClientRect().y  + scrollY)

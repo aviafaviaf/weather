@@ -124,6 +124,10 @@
     }
     #current-weather {
         grid-column: span 2;
+        margin: 0;
+    }
+    article {
+        padding: 0;
     }
     #map {
         grid-column: span 2;
