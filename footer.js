@@ -27,10 +27,10 @@ template.innerHTML = `
     <div id="footer_nav">
         <h3>Навигация</h3>
         <ul>
-            <li><a href="pages/forecast/index.html">Прогноз погоды</a></li>
-            <li><a href="pages/forecast/index.html">Климат России</a></li>
-            <li><a href="pages/forecast/index.html">Магазин</a></li>
-            <li><a href="pages/forecast/index.html">Галерея</a></li>
+            <li><a href="../forecast/index.html">Прогноз погоды</a></li>
+            <li><a href="../climate/index.html">Климат России</a></li>
+            <li><a href="../shop/index.html">Магазин</a></li>
+            <li><a href="../gallery/index.html">Галерея</a></li>
         </ul>
     </div>
     <div id="about_us">

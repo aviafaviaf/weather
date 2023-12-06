@@ -28,7 +28,6 @@ function fillCitySelect() {
         option.textContent = city["name"];
         document.getElementById("city").append(option);
     }
-
 }
 
 document.getElementById("city-search").oninput = function () {

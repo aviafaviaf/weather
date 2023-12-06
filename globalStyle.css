@@ -2,7 +2,13 @@
     font-family: 'Roboto', sans-serif;
 }
 body {
-    background: #fffeff;
+    margin: 0;
+    background-image: url("images/rain-background.png");
+    background-size: auto 100%;
+}
+section {
+    margin-left: 10px;
+    margin-right: 10px;
 }
 h2 {
     text-align: center;
@@ -123,7 +129,7 @@ footer {
     justify-content: center;
     box-shadow: 0 0 10px grey;
     display: grid;
-    margin-top: 20px;
+    margin: 20px 0 0 0;
     background: #dadada;
     grid-template-columns: 24% 24% 24% 24%;
     & > * {
@@ -165,6 +171,7 @@ footer {
         padding: 0;
         margin: 0 0 10px 0;
         & li {
+            width: 100%;
             transition: 0.5s;
             text-indent: 10px;
             border-radius: 4px;
@@ -176,6 +183,10 @@ footer {
                 transform: scale(1.1, 1.1);
             }
             & a {
+                display: block;
+                margin-right: 10px;
+                width: 100%;
+                height: 100%;
                 color: black;
                 text-decoration: none;
                 font-style: normal;
@@ -280,6 +291,7 @@ footer {
         left: 15px;
     }
     [for=burger] {
+        cursor: pointer;
         transition: ease-in .1s;
         z-index: 15;
         display: block;
@@ -298,7 +310,7 @@ footer {
         transition: 0.5s;
         overflow: visible;
         margin-right: 0;
-        position: sticky;
+        position: fixed;
         top: -5px;
         display: none;
         right: 0;

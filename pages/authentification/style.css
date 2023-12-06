@@ -1,63 +1,11 @@
-div.flex {
-    width: auto;
-    flex-flow: row wrap;
+* {
+    font-size: 18px;
+}
+section {
+    background: none;
+    box-shadow: none;
     display: flex;
-}
-div.f {
-    width: auto;
-    padding: 20px;
-    display: flex;
-    flex-flow: row wrap;
-    align-content: space-around;
-    gap: 1px 1px;
-}
-#grid {
-    margin: 30px 10px 10px 10px;
-    display: grid;
-    grid-template-columns: 25% auto 25%;
-    grid-template-rows: 600px 700px 700px;
-    grid-auto-rows: auto;
-    gap: 20px 20px;
-}
-div.in-grid {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background: #d7e7f7;
-    box-shadow: 0 0 10px darkgrey;
-    border-radius: 5px;
-}
-#map {
-    grid-column: span 2;
-    grid-row: 2;
-    overflow: visible;
-    & iframe {
-        margin: 0 auto;
-        display: block;
-        width: 95%;
-        height: 600px;
-    }
-}
-#video {
-    grid-column: 2;
-}
-#list {
-    grid-row: 3;
-}
-#auth {
-    grid-column: span 2;
-}
-#cards {
-    grid-row: 1 / span 3;
-    grid-column: 3;
-}
-div.max-width {
-    grid-column: span 3;
-}
-
-select {
-    background: lavenderblush;
-    font-size: 16px;
+    justify-content: center;
 }
 #submit {
     transition: all 0.2s ease-out;
@@ -107,35 +55,16 @@ select {
     flex-wrap: nowrap;
     flex-direction: row;
 }
-#registration_div {
-    position: relative;
-}
-#captcha {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 3;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background: rgba(30, 30, 255, 0.1);
-    backdrop-filter: blur(3px);
-}
-#captcha_input {
-    width: 20em;
-    height: 1.5em;
-}
 #registration {
     padding: 10px;
     position: relative;
-    z-index: 2;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(20px);
     background: rgba(0, 0, 255, 0.02);
     box-shadow: 0 0 10px darkgrey;
     border-radius: 5px;
     margin: 0;
-    height: 100%;
+    max-width: 500px;
+    height: 580px;
 }
 #reg_submit_div {
     grid-row: 5;
@@ -151,7 +80,41 @@ form.auth {
     box-shadow: 0 0 10px darkgrey;
     border-radius: 5px;
 }
-
+#city-select {
+    margin: 30px;
+    width: 230px;
+    position: relative;
+    & > label {
+        z-index: 1;
+        position: absolute;
+        right: 5px;
+        top: 1px;
+    }
+    & > input {
+        padding: 0;
+        margin: 0;
+        outline: none;
+        background: lightcyan;
+        font-size: 18px;
+        height: 1.3em;
+        width: 100%;
+    }
+    & > ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        background: #f5f5d0;
+        font-size: 18px;
+        overflow-y: scroll;
+        height: 7em;
+        cursor: pointer;
+        width: 100%;
+        & > li {
+            margin: 0;
+            text-indent: 5px;
+        }
+    }
+}
 #grid-reg {
     display: grid;
     grid-template-columns: 50% 50%;
@@ -159,777 +122,52 @@ form.auth {
         margin: 10px;
     }
 }
-#reg-question-div {
-    margin-left: 10px;
-}
 
 #reg-notifications {
     grid-column: span 2;
 }
-
-input.expandable {
-    transition: 0.5s;
-    margin-bottom: 15px;
-    width: 100%;
-    height: 0;
-    &::placeholder {
-        visibility: hidden;
-    }
-}
-input.expandable:focus{
-    transition: 0.5s;
-    margin-bottom: 0;
-    height: 20px;
-    &::placeholder {
-        visibility: visible;
+#switchLogin {
+    color: #222222;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    grid-row: 5;
+    align-items: center;
+    & > u {
+        cursor: pointer;
     }
 }
 
 #login {
-    height: 80%;
+    height: 500px;
+    flex-direction: column;
     width: 300px;
-    z-index: 3;
-    display: flex;
-    flex-direction: column;
-}
-#auth span {
-    position: absolute;
-}
-#cubes1::before {
-    animation: cubes-auth infinite 25s;
-    content: "";
-    box-shadow: 0 0 10px rgba(100, 100, 200, 1);
-    top: 30px;
-    left: -500px;
-    border-radius: 3px;
-    z-index: 1;
-    background: rgba(100, 100, 200, 0.5);
-    position: absolute;
-    --move: 40deg;
-    --size: 30px;
-    width: var(--size);
-    height: var(--size);
-}
-#cubes1::after {
-    animation: cubes-auth infinite 15s;
-    content: "";
-    box-shadow: 0 0 10px rgba(100, 100, 200, 1);
-    top: 250px;
-    left: -300px;
-    border-radius: 3px;
-    z-index: 1;
-    background: rgba(100, 100, 200, 0.5);
-    position: absolute;
-    --move: 70deg;
-    --size: 60px;
-    width: var(--size);
-    height: var(--size);
-}
-#cubes2::before {
-    animation: cubes-auth infinite 30s;
-    content: "";
-    box-shadow: 0 0 10px rgba(100, 100, 200, 1);
-    left: 500px;
-    top: 30px;
-    border-radius: 3px;
-    z-index: 1;
-    background: rgba(100, 100, 200, 0.5);
-    position: absolute;
-    --move: -40deg;
-    --size: 50px;
-    width: var(--size);
-    height: var(--size);
-}
-#cubes2::after {
-    animation: cubes-auth infinite 20s linear;
-    content: "";
-    left: 600px;
-    top: 250px;
-    box-shadow: 0 0 10px rgba(100, 100, 200, 1);
-    bottom: 30px;
-    border-radius: 3px;
-    z-index: 1;
-    background: rgba(100, 100, 200, 0.5);
-    position: absolute;
-    --move: -110deg;
-    --size: 30px;
-    width: var(--size);
-    height: var(--size);
-}
-@keyframes cubes-auth {
-    from {
-        transform: translate(0, 0);
-    }
-    33% {
-        transform: translate(calc((100px - var(--size)) * 15 * sin(var(--move))), calc((100px - var(--size)) * 4 * cos(var(--move))));
-    }
-    66% {
-        transform: translate(calc((100px - var(--size)) * 22 * sin(var(--move))), calc((100px - var(--size)) * 3 * cos(var(--move))));
-    }
-    to {
-        transform: translate(0, 0);
-    }
-}
-
-#notifications {
-    overflow: hidden;
-    z-index: 14;
-    font-size: 24px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    padding-bottom: 3px;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    border: solid 1px;
-    border-radius: 50%;
-    background: #ffeec7;
-    position: fixed;
-    bottom: 15px;
-    right: 5px;
-}
-#notifications::before  {
-    content: '🔔';
-    font-size: 24px;
-}
-#notifications:hover {
-    overflow-y: scroll;
-    justify-content: right;
-    border-radius: 10px;
-    border: 1px solid;
-    width: 380px;
-    height: 400px;
-    background: #ffefcf;
-}
-#delay_notifications {
     display: none;
-    #notifications:hover & {
-        display: block;
-    }
-}
-#notifications:hover::before  {
-    font-size: 0;
-}
-#ol-notifications {
-    list-style: none;
-    padding-right: 10px;
-    padding-left: 5px;
-    font-size: 16px;
-    display: none;
-    flex-direction: column;
-    justify-content: right;
-}
-#notifications:hover #ol-notifications {
-    display: flex;
-}
-#ol-notifications li{
-    position: relative;
-    border: solid 1px;
-    counter-increment: count;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 10px;
-    background: #c9d9e9;
-    transition: all 400ms;
-    width: 300px;
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-}
-#ol-notifications li:hover {
-    transform: scale(1.05, 1.05);
-    background-color: #dfefff;
-}
-#ol-notifications li a {
-    text-align: center;
-    width: inherit;
-    position: relative;
-    bottom: 10px;
-    margin-left: 30px;
-}
-#ol-notifications li a::before {
-    content: counter(count);
-    position: relative;
-    top: 20px;
-    right: 30px;
-    background: #ffeeaa;
-    text-align: center;
-    display: flex;
-    flex-flow: row;
-    justify-content: center;
-    align-items: center;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    padding: 2px;
-}
-
-
-.btn-two {
-    display: inline-block;
-    padding: 8px 16px;
-    border-radius: 10px;
-    font-size: 20px;
-    position: relative;
-    transition: 0.1s;
-    overflow: hidden;
-    z-index: 1;
-}
-.btn-two:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: lightblue;
-    border-radius: 10px;
-    z-index: -2;
-}
-.btn-two:before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    background-color: cornflowerblue;
-    transition: all .3s;
-    border-radius: 10px;
-    z-index: -1;
-}
-.btn-two:hover:before {
-    width: 100%;
-}
-
-#div_video {
-    position: relative;
-    display: block;
-    margin: 0 auto;
-    width: 900px;
-}
-#vid {
-    padding-left: 10px;
-    border: solid 1px;
-    border-radius: 10px;
-    transition: 0.5s;
-    font-size: 16px;
-    opacity: 0;
-    width: 60%;
-    background: #ffefcf;
-    height: 30%;
-    left: -5%;
-    top: 20%;
-    display: block;
-    position: absolute;
-    aspect-ratio: auto;
-}
-#div_video:hover #vid{
-    transition: 0.5s;
-    opacity: 1;
-}
-#text_vid {
-    position: absolute;
-}
-
-img {
-    margin: 10px;
-}
-img.center {
-    margin: 0 auto;
-    display: block;
-}
-img.left {
-    float: left;
-}
-img.right {
-    float: right;
-}
-
-div.notification {
-    z-index: 10;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.5s;
-    position: fixed;
-    right: 50px;
-    bottom: 30px;
-    background: #a0b0ff;
-    border-radius: 15px;
-    box-shadow: lightgrey 0 0 10px;
-    min-width: 200px;
-    min-height: 50px;
-    width: auto;
-    height: auto;
-}
-
-/* cards */
-#cards1 {
-    justify-content: center;
-    margin-top: 20px;
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-wrap: wrap;
-    > div {
-        margin: 40px 10px 10px 10px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        position: relative;
-        height: 520px;
-        width: 360px;
-    }
-    > div::before {
-        transition: 0.5s;
-        box-shadow: 0 0 40px lightblue;
-        border-radius: 6px;
-        right: 50px;
-        top: 0;
-        content: "";
-        transform: skewX(10deg);
-        background: linear-gradient(15deg, lavenderblush, lightblue);
-        position: absolute;
-        height: 100%;
-        width: 70%;
-    }
-    > div > span::after {
-        border-radius: 7px;
-        transition: 0.5s;
-        opacity: 0;
-        content: "";
-        position: absolute;
-        height: 10px;
-        width: 10px;
-        right: 200px;
-        top: 65%;
-        background: rgba(0, 0, 0, 0.05);
-    }
-    > div > span::before {
-        border-radius: 7px;
-        transition: 0.5s;
-        content: "";
-        opacity: 0;
-        position: absolute;
-        height: 10px;
-        width: 10px;
-        left: 200px;
-        top: 35%;
-        background: rgba(0, 0, 0, 0.05);
-    }
-    > div > div {
-        backdrop-filter: blur(10px);
-        transition: 0.5s;
-        border-radius: 30px;
-        padding: 15px;
-        margin: 0 auto;
-        background: rgba(0, 0, 0, 0.05);
-        position: relative;
-        z-index: 1;
-    }
-    > div:hover {
-        &::before {
-            transform: skewX(0deg);
-            transition: 0.5s transform;
-        }
-        & > div {
-            transition: 0.5s;
-            padding-top: 50px;
-            padding-bottom: 50px;
-        }
-        > span::after {
-            z-index: 2;
-            animation-name: cubes2-card1;
-            animation-duration: 5s;
-            animation-delay: 0.5s;
-            animation-iteration-count: infinite;
-            transition: 0.5s;
-            opacity: 1;
-            right: 70px;
-            height: 70px;
-            width: 70px;
-            top: calc(65% + 120px);
-        }
-        > span::before {
-            z-index: 2;
-            animation-name: cubes1-card1;
-            animation-duration: 5s;
-            animation-delay: 0.5s;
-            animation-iteration-count: infinite;
-            transition: 0.5s;
-            opacity: 1;
-            width: 70px;
-            height: 70px;
-            left: 70px;
-            top: calc(35% - 200px);
-        }
-    }
-}
-#cards2 {
-    pointer-events: none;
-    counter-reset: counter;
-    justify-content: space-around;
-    margin-top: 20px;
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-wrap: wrap;
-    &:hover > div:not(:hover) {
-        filter: blur(5px);
-    }
+    align-content: space-around;
     & > div {
-        pointer-events: auto;
-        transition: 0.5s;
-        overflow: hidden;
-        background: #e0f0ff;
-        border-radius: 15px;
-        margin: 40px 10px 10px 10px;
+        & > label {
+            margin-top: 40px;
+        }
+        & > button {
+            margin-top: 40px;
+        }
+        & > input {
+            height: 1.5em;
+        }
+        & > #sub {
+            margin-top: 40px;
+        }
+        & > #switchRegistration {
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            display: block;
+            text-align: right;
+            vertical-align: bottom;
+            color: #222222;
+        }
+        height: 100%;
         display: flex;
         flex-direction: column;
-        padding-top: 240px;
-        justify-content: start;
-        position: relative;
-        height: 320px;
-        width: 360px;
-        &:hover {
-            transform: scale(1.05, 1.05);
-            transition: 0.5s;
-        }
-    }
-    & > div > div {
-        transition: 0.5s;
-        padding: 15px;
-        margin: 0 auto;
-        position: relative;
-        z-index: 1;
-    }
-    & > div::before {
-        counter-increment: counter;
-        position: absolute;
-        right: -20px;
-        top: -200px;
-        content: counter(counter);
-        text-align: center;
-        display: grid;
-        align-items: end;
-        font-size: 100px;
-        background: #36a7ff;
-        width: 400px;
-        height: 360px;
-        border-radius: 50%;
-        padding-bottom: 20px;
-    }
-}
-#cards3 {
-    pointer-events: none;
-    counter-set: counter 3;
-    justify-content: space-around;
-    margin-top: 20px;
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-wrap: wrap;
-    &:hover > div:not(:hover) {
-        opacity: 0.2;
-    }
-    & > div {
-        overflow: hidden;
-        pointer-events: auto;
-        transition: 0.5s;
-        background: #c0d0ff;
-        margin: 40px 10px 10px 10px;
-        border-radius: 3px;
-        display: flex;
-        flex-direction: column;
-        padding-top: 100px;
-        justify-content: start;
-        position: relative;
-        height: 320px;
-        width: 360px;
-        &:hover {
-            transform: scale(1.05, 1.05);
-            transition: 0.5s;
-        }
-        & > span {
-            top:0;
-            width: 10px;
-            height: 10px;
-            position: absolute;
-            z-index: 10;
-        }
-        & > span:nth-child(1)::before {
-            border-bottom-right-radius: 3px;
-            border-top-right-radius: 3px;
-            top: 0;
-            left: -200px;
-            --move: 0deg;
-            position: absolute;
-            content: "";
-            background: linear-gradient(-90deg, firebrick, pink);
-            width: 200px;
-            height: 2px;
-        }
-        &:hover > span:nth-child(1)::before {
-            animation: border-move infinite 2s;
-        }
-        & > span:nth-child(1)::after {
-            border-bottom-right-radius: 3px;
-            border-top-right-radius: 3px;
-            top: -200px;
-            left: 357px;
-            --move: 90deg;
-            position: absolute;
-            content: "";
-            background: linear-gradient(-90deg, firebrick, pink);
-            width: 2px;
-            height: 200px;
-        }
-        &:hover > span:nth-child(1)::after {
-            animation: border-move infinite 2s 0.7s linear;
-        }
-        & > span:nth-child(2)::before {
-            border-bottom-right-radius: 3px;
-            border-top-right-radius: 3px;
-            top: 417px;
-            left: 360px;
-            --move: 180deg;
-            position: absolute;
-            content: "";
-            background: linear-gradient(90deg, firebrick, pink);
-            width: 200px;
-            height: 2px;
-        }
-        &:hover > span:nth-child(2)::before {
-            animation: border-move infinite 2s;
-        }
-        & > span:nth-child(2)::after {
-            border-bottom-right-radius: 3px;
-            border-top-right-radius: 3px;
-            top: 417px;
-            left: 0;
-            --move: -90deg;
-            position: absolute;
-            content: "";
-            background: linear-gradient(-90deg, firebrick, pink);
-            width: 2px;
-            height: 200px;
-        }
-        &:hover > span:nth-child(2)::after {
-            animation: border-move infinite 2s 0.7s linear;
-        }
-    }
-    & > div > div {
-        transition: 0.5s;
-        padding: 15px;
-        margin: 0 auto;
-        position: relative;
-        z-index: 1;
-    }
-    & > div::after {
-        counter-increment: counter;
-        position: absolute;
-        right: 0;
-        top: 0;
-        content: counter(counter);
-        text-align: center;
-        display: grid;
-        align-items: start;
-        font-size: 100px;
-        background: #a0b0ff;
-        width: 30%;
-        height: 100%;
-    }
-}
-@keyframes border-move {
-    from {
-        transform: translate(0, 0);
-    }
-    to {
-        transform: translate(calc(580px * cos(var(--move))), calc(680px * sin(var(--move))));
-    }
-}
-@keyframes cubes2-card1 {
-    from {
-        top: calc(65% + 120px);
-        right: 70px;
-    }
-    33% {
-        right: 140px;
-        top: calc(65% + 80px);
-    }
-    66% {
-        right: 200px;
-        top: calc(65% + 120px);
-    }
-    to {
-        top: calc(65% + 120px);
-        right: 70px;
-    }
-}
-@keyframes cubes1-card1 {
-    from {
-         top: calc(35% - 200px);
-         left: 70px;
-    }
-    33% {
-        left: 140px;
-        top: calc(35% - 160px);
-    }
-    66% {
-        left: 200px;
-        top: calc(35% - 200px);
-    }
-    to {
-        top: calc(35% - 200px);
-        left: 70px;
-    }
-}
-button.delete-notification {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-}
-
-#center {
-    position: relative;
-    background: lightblue;
-    border-radius: 5px;
-    width: 300px;
-    height: 250px;
-    & > img {
-        margin: 0;
-        position: relative;
-        width: 250px;
-        height: 200px;
-    }
-}
-
-/* адаптация */
-
-@media (max-width: 1500px) and (min-width: 1000px) {
-    #grid {
-        margin: 10px;
-        display: grid;
-        grid-template-columns: 49% 49%;
-        grid-template-rows: 500px 700px 700px;
-        grid-auto-rows: auto;
-        gap: 20px 20px;
-    }
-    div.in-grid {
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        background: #d7e7f7;
-        box-shadow: 0 0 10px darkgrey;
-        border-radius: 5px;
-    }
-    #map {
-        grid-column: span 2;
-        grid-row: 2 / span 1;
-        overflow: visible;
-        & iframe {
-            margin: 0 auto;
-            display: block;
-            width: 95%;
-            height: 600px;
-        }
-    }
-    #video {
-        grid-row: 3;
-        grid-column: span 1;
-        & iframe {
-            margin: 0 auto;
-            display: block;
-            width: 95%;
-            height: 600px;
-        }
-    }
-    #list {
-        grid-row: 3;
-    }
-    #auth {
-        grid-column: span 2;
-    }
-    #cards {
-        grid-column: span 2;
-        grid-row: 4;
-    }
-    div.max-width {
-        grid-column: span 2;
-    }
-}
-@media (max-width: 1000px) {
-    #gallery {
-        gap: 20px 0;
-        grid-template-columns: 100%;
-        grid-template-rows: 400px 400px 400px;
-        grid-auto-rows: 400px;
-    }
-    div.img_gallery {
-        grid-column: 1;
-    }
-    #auth {
-        flex-direction: column;
-    }
-    #grid {
-        margin: 10px;
-        display: grid;
-        grid-template-columns: 99%;
-        grid-template-rows: auto 700px 700px;
-        grid-auto-rows: auto;
-        gap: 20px 20px;
-    }
-    div.in-grid {
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        background: #d7e7f7;
-        box-shadow: 0 0 10px darkgrey;
-        border-radius: 5px;
-    }
-    #map {
-        grid-column: span 1;
-        grid-row: 2 / span 1;
-        overflow: visible;
-        & iframe {
-            margin: 0 auto;
-            display: block;
-            width: 95%;
-            height: 600px;
-        }
-    }
-    #video {
-        grid-row: 3;
-        grid-column: span 1;
-        & iframe {
-            margin: 0 auto;
-            display: block;
-            width: 95%;
-            height: 600px;
-        }
-    }
-    #list {
-        grid-row: 4;
-    }
-    #auth {
-        grid-column: span 1;
-    }
-    #cards {
-        grid-column: span 1;
-        grid-row: 5;
-    }
-    div.max-width {
-        grid-column: span 1;
-    }
-}
-@media (max-width: 712px) {
-    #grid-reg {
-        grid-template-columns: 100%;
-    }
-    #reg-notifications {
-        grid-column: span 1;
     }
 }

@@ -11,70 +11,73 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-    <script defer src="script.js"></script>
+    <script defer type="module" src="script.js"></script>
     <script defer src="../../header.js"></script>
     <script defer src="../../footer.js"></script>
 </head>
 <body>
-<article>
-    <div id="registration_div">
-        <form id="registration" action="" method="dialog">
-            <h2 id="reg">Регистрация</h2>
-            <div id="grid-reg">
-                <div>
-                    <label for="email">Почта</label><br>
-                    <input type="email" name="email" id="email" placeholder="Почта">
-                </div>
-                <div>
-                    <label for="password">Пароль</label><br>
-                    <input type="password" name="password" id="password" placeholder="******">
-                </div>
-                <div>
-                    <label for="tel">Телефон</label><br>
-                    <input type="tel" pattern="[+][7][0-9]{10}" name="tel" id="tel" placeholder="Телефон">
-                </div>
-                <div>
-                    <label for="name">Имя</label><br>
-                    <input type="text" name="name" id="name" placeholder="Имя">
-                </div>
-                <div id="reg-notifications">
-                    <fieldset>
-                        <legend>Уведомления</legend>
-                        <div>
-                            <input type="radio" id="type1" name="drone" value="huey" checked />
-                            <label for="type1">Все уведомлления</label>
-                        </div>
-                        <div>
-                            <input type="radio" id="type2" name="drone" value="dewey" />
-                            <label for="type2">Уведомления только о плохой погоде</label>
-                        </div>
-                        <div>
-                            <input type="radio" id="type3" name="drone" value="louie" />
-                            <label for="type3">Я не хочу получать уведомления</label>
-                        </div>
-                    </fieldset>
-                </div>
-                <div id="city-select">
-                    <label for="city">Город</label><br>
-                    <select name="select" id="city" size="2">
-                        <option value="moscow">Москва</option>
-                        <option value="spb">Санкт-Петербург</option>
-                    </select>
-                </div>
-                <div id="reg_submit_div">
-                    <input type="submit" value="Зарегистрироваться" name="submit" id="submit" required>
-                </div>
+<section>
+    <form id="registration" action="" method="dialog">
+        <h2 id="reg">Регистрация</h2>
+        <div id="grid-reg">
+            <div>
+                <label for="email">Почта</label><br>
+                <input type="email" name="email" id="email" placeholder="Почта">
             </div>
-        </form>
-    </div>
+            <div>
+                <label for="password">Пароль</label><br>
+                <input type="password" name="password" id="password" placeholder="******">
+            </div>
+            <div>
+                <label for="tel">Телефон</label><br>
+                <input type="tel" pattern="[+][7][0-9]{10}" name="tel" id="tel" placeholder="Телефон">
+            </div>
+            <div>
+                <label for="name">Имя</label><br>
+                <input type="text" name="name" id="name" placeholder="Имя">
+            </div>
+            <div id="reg-notifications">
+                <fieldset>
+                    <legend>Уведомления</legend>
+                    <div>
+                        <input type="radio" id="type1" checked />
+                        <label for="type1">Все уведомлления</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="type2"/>
+                        <label for="type2">Уведомления только о плохой погоде</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="type3"/>
+                        <label for="type3">Я не хочу получать уведомления</label>
+                    </div>
+                </fieldset>
+            </div>
+            <div id="city-select">
+                <label for="city-search">🔍</label>
+                <input id="city-search" type="text" maxlength="20" placeholder="Поиск">
+                <ul id="city"></ul>
+            </div>
+            <div id="reg_submit_div">
+                <input type="submit" value="Зарегистрироваться" name="submit" id="submit" required>
+            </div>
+            <div id="switchLogin">
+                <span>Уже зарегистрированы?</span>
+                <u>Войти</u>
+            </div>
+        </div>
+    </form>
     <form id="login" action="" method="get" class="auth">
         <h2>Войти</h2>
-        <label for="em">Почта</label>
-        <input type="email" name="email" id="em" placeholder="Почта" required>
-        <label for="pass">Пароль</label>
-        <input type="password" name="password" id="pass" placeholder="******" required>
-        <input type="submit" value="Войти" name="submit" id="sub" required>
+        <div>
+            <label for="em">Почта</label>
+            <input type="email" name="email" id="em" placeholder="Почта" required>
+            <label for="pass">Пароль</label>
+            <input type="password" name="password" id="pass" placeholder="******" required>
+            <input type="submit" value="Войти" name="submit" id="sub" required>
+            <span id="switchRegistration">Ещё нет аккаунта? <u>Зарегистрироваться</u></span>
+        </div>
     </form>
-</article>
+</section>
 </body>
 </html>
