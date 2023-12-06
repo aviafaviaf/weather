@@ -17,16 +17,16 @@
 </head>
 <body>
 <section>
-    <form id="registration" action="" method="dialog">
+    <form id="registration" action="" method="get">
         <h2 id="reg">Регистрация</h2>
         <div id="grid-reg">
             <div>
                 <label for="email">Почта</label><br>
-                <input type="email" name="email" id="email" placeholder="Почта">
+                <input type="email" name="email" id="email" placeholder="Почта" required>
             </div>
             <div>
                 <label for="password">Пароль</label><br>
-                <input type="password" name="password" id="password" placeholder="******">
+                <input type="password" name="password" id="password" placeholder="******" required>
             </div>
             <div>
                 <label for="tel">Телефон</label><br>
@@ -40,20 +40,17 @@
                 <fieldset>
                     <legend>Уведомления</legend>
                     <div>
-                        <input type="radio" id="type1" checked />
-                        <label for="type1">Все уведомлления</label>
+                        <input type="radio" id="type1" name="notifications" checked />
+                        <label for="type1">Я хочу получать уведомления</label>
                     </div>
                     <div>
-                        <input type="radio" id="type2"/>
-                        <label for="type2">Уведомления только о плохой погоде</label>
-                    </div>
-                    <div>
-                        <input type="radio" id="type3"/>
-                        <label for="type3">Я не хочу получать уведомления</label>
+                        <input type="radio" id="type2" name="notifications"/>
+                        <label for="type2">Я не хочу получать уведомления</label>
                     </div>
                 </fieldset>
             </div>
             <div id="city-select">
+                <span>Город:</span>
                 <label for="city-search">🔍</label>
                 <input id="city-search" type="text" maxlength="20" placeholder="Поиск">
                 <ul id="city"></ul>
@@ -62,8 +59,12 @@
                 <input type="submit" value="Зарегистрироваться" name="submit" id="submit" required>
             </div>
             <div id="switchLogin">
-                <span>Уже зарегистрированы?</span>
+                <div>
+                <span>Зарегистрированы?</span>
+                </div>
+                <div>
                 <u>Войти</u>
+                </div>
             </div>
         </div>
     </form>

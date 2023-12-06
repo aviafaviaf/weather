@@ -14,8 +14,6 @@ section {
     background: #f7e7c7;
     display: block;
     height: 30px;
-    padding-left: 20px;
-    padding-right: 20px;
     margin: 15px 5px 15px 15px;
     float: left;
 }
@@ -43,18 +41,6 @@ section {
     transition: all 0.2s ease-out;
     transform: translateY(-3px);
 }
-#auth {
-    border-radius: 5px;
-    background: rgba(215, 231, 247);
-    box-shadow: 0 0 10px darkgrey;
-    justify-content: space-around;
-    align-items: center;
-    gap: 15px;
-    overflow: hidden;
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
-}
 #registration {
     padding: 10px;
     position: relative;
@@ -63,32 +49,21 @@ section {
     box-shadow: 0 0 10px darkgrey;
     border-radius: 5px;
     margin: 0;
+    width: 100%;
     max-width: 500px;
-    height: 580px;
+    height: 540px;
 }
 #reg_submit_div {
     grid-row: 5;
 }
-form.auth {
-    position: relative;
-    z-index: 2;
-    backdrop-filter: blur(10px);
-    bottom: 0;
-    margin: 20px 10px 20px 10px;
-    padding: 10px;
-    background: rgba(0, 0, 255, 0.02);
-    box-shadow: 0 0 10px darkgrey;
-    border-radius: 5px;
-}
+
 #city-select {
-    margin: 30px;
-    width: 230px;
     position: relative;
     & > label {
         z-index: 1;
         position: absolute;
         right: 5px;
-        top: 1px;
+        top: 1.3em;
     }
     & > input {
         padding: 0;
@@ -97,7 +72,7 @@ form.auth {
         background: lightcyan;
         font-size: 18px;
         height: 1.3em;
-        width: 100%;
+        width: 98%;
     }
     & > ul {
         margin: 0;
@@ -117,9 +92,19 @@ form.auth {
 }
 #grid-reg {
     display: grid;
-    grid-template-columns: 50% 50%;
+    width: 100%;
+    gap: 15px;
+    grid-template-columns: 1fr 1fr;
     & > div {
-        margin: 10px;
+        padding: 0;
+        display: block;
+        width: 100%;
+    }
+    & input:not([type="radio"]):not([placeholder="Поиск"]) {
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
     }
 }
 
@@ -127,35 +112,44 @@ form.auth {
     grid-column: span 2;
 }
 #switchLogin {
+    text-align: right;
     color: #222222;
     display: flex;
     flex-direction: column;
     justify-content: center;
     grid-row: 5;
     align-items: center;
-    & > u {
+    & u {
         cursor: pointer;
     }
 }
 
 #login {
-    height: 500px;
+    position: relative;
+    z-index: 2;
+    backdrop-filter: blur(10px);
+    bottom: 0;
+    padding: 10px;
+    background: rgba(0, 0, 255, 0.02);
+    box-shadow: 0 0 10px darkgrey;
+    border-radius: 5px;
+    height: 450px;
     flex-direction: column;
     width: 300px;
     display: none;
     align-content: space-around;
     & > div {
         & > label {
-            margin-top: 40px;
+            margin-top: 10px;
         }
         & > button {
-            margin-top: 40px;
+            margin-top: 30px;
         }
         & > input {
             height: 1.5em;
         }
         & > #sub {
-            margin-top: 40px;
+            margin-top: 30px;
         }
         & > #switchRegistration {
             position: absolute;
@@ -165,6 +159,9 @@ form.auth {
             text-align: right;
             vertical-align: bottom;
             color: #222222;
+            & > u {
+                cursor: pointer;
+            }
         }
         height: 100%;
         display: flex;

@@ -92,20 +92,23 @@ ul.horizontal-list li:active {
 }
 
 
-article {
-    overflow: hidden;
-    margin: 15px;
-    padding: 20px;
-    background: #d7e7f7;
-    box-shadow: 0 0 10px darkgrey;
-    border-radius: 5px;
-}
 section {
-    background: #ededff;
-    margin-top:20px;
+    position: relative;
+    margin:20px 5px 5px 5px;
     padding: 5px 20px 15px 20px;
     box-shadow: 0 0 10px darkgrey;
+    overflow: hidden;
     border-radius: 5px;
+    & > .opacity {
+        background: #ededff;
+        z-index: -1;
+        position: absolute;
+        opacity: 0.95;
+        top: -10px;
+        left: -10px;
+        width: 110%;
+        height: 110%;
+    }
 }
 
 address {
@@ -129,7 +132,7 @@ footer {
     justify-content: center;
     box-shadow: 0 0 10px grey;
     display: grid;
-    margin: 20px 0 0 0;
+    margin: 10px 0 0 0;
     background: #dadada;
     grid-template-columns: 24% 24% 24% 24%;
     & > * {

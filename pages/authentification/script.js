@@ -33,11 +33,11 @@ for (let li of document.querySelectorAll("#city li")) {
 }
 
 
-document.querySelector("#switchLogin > u").onclick = function () {
+document.querySelector("#switchLogin u").onclick = function () {
     document.getElementById("login").style.display = "flex";
     document.getElementById("registration").style.display = "none";
 }
-document.querySelector("#switchRegistration > u").onclick = function () {
+document.querySelector("#switchRegistration u").onclick = function () {
     document.getElementById("login").style.display = "none";
     document.getElementById("registration").style.display = "block";
 }
