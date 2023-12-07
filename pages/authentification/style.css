@@ -44,7 +44,7 @@ section {
 #registration {
     padding: 10px;
     position: relative;
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(10px);
     background: rgba(0, 0, 255, 0.02);
     box-shadow: 0 0 10px darkgrey;
     border-radius: 5px;
