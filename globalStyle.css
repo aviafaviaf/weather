@@ -372,7 +372,7 @@ footer {
         justify-content: center;
         box-shadow: 0 0 10px grey;
         display: grid;
-        margin-top: 20px;
+        margin-top: 10px;
         background: #d4d4d4;
         grid-template-columns: 100%;
 
@@ -380,7 +380,9 @@ footer {
             margin: 10px 20px 10px 20px;
         }
     }
-
+    section {
+        margin: 0;
+    }
     address {
         grid-column: 1;
     }
