@@ -291,10 +291,10 @@ function fillFull(data) {
     }
 }
 function fillForecast(data) {
-    let weekDay = getDate(data["current"]["time"]).getDay() + 1;
+    let weekDay = (getDate(data["current"]["time"]).getDay() + 6) % 7;
     let month = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"];
     let week = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"];
-    for (let i = 15 - weekDay; i < 30; i++) {
+    for (let i = 13 - weekDay; i < 30; i++) {
         let element = document.createElement("div");
         let div = document.createElement("div");
         let date = getDate(data["daily"]["time"][i]);
