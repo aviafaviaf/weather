@@ -409,7 +409,7 @@ function fillForecast(data) {
         div.append(maxTemp, minTemp, wci, dateText, weekText);
         element.append(div);
         document.getElementById("grid").append(element);
-        if ((i + 1) % 7 === (15 - weekDay) % 7) {
+        if ((i + 1) % 7 === (13 - weekDay) % 7) {
             let voidElement = document.createElement("div");
             voidElement.className = "void";
             document.getElementById("grid").append(voidElement);
