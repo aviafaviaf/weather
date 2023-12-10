@@ -1,6 +1,7 @@
 const template = document.createElement('template');
 template.innerHTML = `
 <footer>
+    <div id="line">Куликов Владислав Александрович ИКБО-16-22</div>
     <address>
         <h3>Контакты</h3>
         <p style="font-size: 18px">

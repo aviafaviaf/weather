@@ -125,6 +125,9 @@ address {
     }
 }
 footer {
+    padding-bottom: 1.5em;
+    overflow: hidden;
+    position: relative;
     justify-content: center;
     box-shadow: 0 0 10px grey;
     display: grid;
@@ -136,6 +139,18 @@ footer {
         background: lightgrey;
         box-shadow: 0 0 5px grey;
         margin: 10px 20px 10px 20px;
+    }
+    & > #line {
+        text-align: center;
+        margin: 0;
+        background: grey;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        border-radius: 0;
+        display: block;
+        width: 100%;
+        height: 1.2em;
     }
 }
 #social_networks {
