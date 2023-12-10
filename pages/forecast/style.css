@@ -52,7 +52,7 @@
         z-index: 1;
         position: absolute;
         right: 5px;
-        top: 3px;
+        top: 1px;
     }
     & > input {
         padding: 0;
