@@ -17,7 +17,7 @@ function getData(city, link) {
 
 function fillCitySelect() {
     let option = document.createElement("li");
-    option.dataset["city"] = "Москва" + " " + "55.7522" + "|" + "37.6156";
+    option.dataset["city"] = "55.7522" + "|" + "37.6156";
     option.textContent = "Москва";
     document.getElementById("city").append(option);
     for (let city of cities) {
