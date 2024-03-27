@@ -173,7 +173,7 @@ function fillFull(data) {
     for (let i = 0; i < 30; i++) {
         let date = getDate(data["daily"]["time"][i]);
         if (!fill) {
-            if (date.getDay() === 0)
+            if (date.getDay() === 1)
                 fill = true;
             else {
                 skipCount++;
@@ -193,9 +193,9 @@ function fillFull(data) {
         div.style.gridTemplateColumns = "1fr 1fr";
         div.style.gridTemplateRows = "40px 60px 35px 35px";
         div.style.margin = "20px";
-        if (i === 13)
-            element.style.background = "#b3deff";
         if (i === 14)
+            element.style.background = "#b3deff";
+        if (i === 15)
             element.style.background = "#C4E2FB";
         wci.src = "../../images/sun.png";
         wci.style.width = "100%";
@@ -215,7 +215,7 @@ function fillFull(data) {
         dateText.style.fontSize = "24px";
         dateText.style.gridRow = "3";
         dateText.style.gridColumn = "span 2";
-        weekText.textContent = week[date.getDay()];
+        weekText.textContent = week[(date.getDay() + 6) % 7];
         weekText.style.fontSize = "20px";
         weekText.style.gridRow = "4";
         weekText.style.gridColumn = "span 2";
@@ -294,7 +294,7 @@ function fillForecast(data) {
     let weekDay = (getDate(data["current"]["time"]).getDay() + 6) % 7;
     let month = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"];
     let week = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"];
-    for (let i = 13 - weekDay; i < 30; i++) {
+    for (let i = 14 - weekDay; i < 30; i++) {
         let element = document.createElement("div");
         let div = document.createElement("div");
         let date = getDate(data["daily"]["time"][i]);
@@ -308,7 +308,7 @@ function fillForecast(data) {
         div.style.gridTemplateColumns = "1fr 1fr";
         div.style.gridTemplateRows = "40px 60px 35px 35px";
         div.style.margin = "20px";
-        if (i < 13) {
+        if (i < 14) {
             let overlap = document.createElement("div");
             overlap.style.position = "absolute";
             overlap.style.width = "100%";
@@ -318,10 +318,10 @@ function fillForecast(data) {
             overlap.style.opacity = "0.5";
             element.append(overlap);
         }
-        if (i === 13) {
+        if (i === 14) {
             element.style.background = "#b3deff";
         }
-        if (i === 14)
+        if (i === 15)
             element.style.background = "#C4E2FB";
         wci.src = "../../images/sun.png";
         wci.style.width = "100%";
@@ -341,7 +341,7 @@ function fillForecast(data) {
         dateText.style.fontSize = "20px";
         dateText.style.gridRow = "3";
         dateText.style.gridColumn = "span 2";
-        weekText.textContent = week[date.getDay()];
+        weekText.textContent = week[(date.getDay() + 6) % 7];
         weekText.style.fontSize = "20px";
         weekText.style.gridRow = "4";
         weekText.style.gridColumn = "span 2";
